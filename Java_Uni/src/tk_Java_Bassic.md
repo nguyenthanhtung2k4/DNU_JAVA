@@ -11,11 +11,19 @@
 ////////////////////////////////////// Gợi ý //////////////////
           - Mỗi lần viết code xong xuống dòng phải có ;
           - Khái báo thư viẹn : import java.{tên_thư_viện}
+          - + (Dấu cộng sẽ cho phép bạn liên kết với a với b thành c)
+```java
+                         a=10;
+                         System.out.print("tung"+a)
+```
 
 
 
 ////////////////////////////////////// Quan trong //////////////////
-          - Khai báo thư viện  Scanner : 
+          -  Trong java không cho phép sử dụng chỉ số âm
+          - Khai báo thư viện  Scanner : Cho phép bạn nhập vào để lấy các giá trị khi nhập vào.
+          - continue :  Cho phép bạn nhảy bước hay nói cách khác cho phép bạn bỏ qua bước đó
+          - break : Cho phép bạn bỏ quả hẳn bước đó (nếu dùng for nó sẽ bỏ qua vòng for luôn)
 
 ////////////////////////////////////// Biến  //////////////////
           - Khai báo biến : <Kiểu> <tên_biến> = <Gán_giá_trị>
@@ -69,6 +77,13 @@
                ||
                !
 
+
+////////////////////////////////////// Các hàm trong Java  //////////////////////////////////////////
+     - length :  Kiểm tra độ dài của mảng , object ....
+     - toUppercase() : in hoa
+     - toLowerCase() : in thuong
+     - indeOf() : tìm vị trí trong chuỗi
+     - supper  : truy xuất thằng cha trong class ( OPP: Lập trình hướng đôí tượng)
 
 ////////////////////////////////////// Hiện dữ liệu & Nhập dữ liệu (print input)  //////////////////
 
@@ -130,14 +145,22 @@
 ```
 
 
-///////////////////////////////////////// Vòng lặp ////////////////////////////////
+///////////////////////////////////////// Điều kiện ////////////////////////////////
           if else
-          while
-          swich case
+///////////////////////////////////////// Vòng lặp ////////////////////////////////
+          for : vòng lặp được xác định trước (dùng giống C++)
+          for each : Cho phép bạn lặp lại mà k xác định trước ( giống php)
+          while : Vòng lặp cho đến khi thoản mãn điều kiện
+          swich case : Dùng trong các trường hợp( dùng giống C++)
+                    ==> Trong các vòng lăp cho  phép bạn  sử dụng các hàm như: continue, break
+                    ---> Từ hàm này cho phép bạn  sử dụng và vận  dùng vào mỗi công dụng cụ thể
+![Vd: Sử dụng các vòng lặp](./tk_VòngLap.java)
 ///////////////////////////////////////// Array ////////////////////////////////
-          - Khai báo mảng : <Kiểu> <Đặt_tên> = {<dữ_liệu_chuyền_vào>} ;
-          -  Khai báo mảng cũng có thể dùng  với thư viện bên ngoài .
+          - Khai báo mảng : <Kiểu> [] <Đặt_tên>= {<dữ_liệu_chuyền_vào>} ;
+          - Khai báo mảng 2 chiều: <kiểu> [][] <đặt_tên> = {<dữ_Liêu_chuyen_vao>}
 
+          - Khai báo mảng cũng có thể dùng  với thư viện bên ngoài .
+          
 ![Vd: Sử dụng Arr](./tk_Array.java)
 
 ///////////////////////////////////////// Objects ////////////////////////////////

@@ -25,15 +25,14 @@ public class Chuong1 {
              System.out.println("Nhập n: ");
              int a = scanner.nextInt();
              for(int i=0;i<a;i++){
-                 if(i%5==0){
-                     System.out.println(i+"Chia het cho 5");
+                 if(i%3==0){
+                     System.out.println(i+"Chia het cho 3");
                      
                  }
              }
          }
      }    
  
-    @SuppressWarnings("unused")
     public static void bai3(){
          try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Nhập n: ");
