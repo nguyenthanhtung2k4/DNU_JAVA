@@ -31,7 +31,7 @@ class Account {
     }
 }
 
-public class tk_Class_OPP_private{
+public class tk_Class_OPP_Xam_Nhap_private{
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
         Account account = new Account(1000);
 
