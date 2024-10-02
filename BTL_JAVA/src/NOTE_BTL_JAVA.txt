@@ -7,9 +7,8 @@ Mô phỏng giảng dạy (Teaching Simulation): Tạo ra các lớp mô phỏng
 Trò chơi giáo dục (Educational Games): Phát triển các đối tượng giáo dục như câu hỏi, bài toán, và các phần thưởng để giúp học sinh học tập qua chơi.
           + Hệ thống ngân hàng.
 
+TIM HIEU THEM VE HE RHING NGAN HANG HGOM CO  NHUNG GI....
 
 Link  tham  khao  ve IFame trong java : 
 ----> https://gemini.google.com/app/ed727f91da0b7c66?hl=vi
 ----> https://chatgpt.com/c/66f55f51-afb0-800f-b2da-a6e5f6752e26
-tham khao  ve  request  java 
------> https://www.baelduncom/java-http-requestg.
