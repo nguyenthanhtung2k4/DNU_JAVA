@@ -173,10 +173,6 @@
           - Các phương thức khởi tạo:   không có giá trị trả về.
                               + Có tham số
                               +  Không tham số (Mặc định)
-          -  Các từ khóa trong Class:
-                              public	: Bất kỳ đâu trong chương trình
-                              protected	: Trong lớp, các lớp con và các lớp trong cùng gói
-                              private	: Chỉ trong lớp cha 
 
           - Các phuong thức Class:
                               class:
@@ -192,9 +188,12 @@
                     --> Cho phép bạn  tái sử dụng  code ngoài ra
 ![Vd1:Sử dụng Kết tập](./tk_Class_OPP_KeTap.java)
 ![Vd2:Sử dụng Kết tập](./tk_Class_OPP_KeTap2.java)
+
           - Tính Kế thừa OPP: Cho phép bạn kế thừa  code cha vào code con
-              <ClassCon> extends  <ClassCha>
-              - supper : cho  phép bạn  kết thừa class lớp cha sàn thằngcon
+               <ClassCon> extends  <ClassCha>
+               supper : cho  phép bạn  kết thừa class lớp cha sàn thằngcon
+
+               - Ngoài ra chúng còn kế thừa đa cấp ( hiểu đơn giản là cháu -> kế thừa -> Cha  --> Kế thừa --> Ông )
 ![VD: Cách sử dụng Kế thừa](./tk_Class_OPP_KeThua.java)
 ![VD: Nguyên lý kế thừa](./tk_4Nguyên%20Lý%20Kế%20Thừa%20(%20private,%20protected,public).png)
 
@@ -202,15 +201,25 @@
                     + Kế tập : Là các đối tượng độc lập ( Lớp này là đối tượng của lớp kia)
                     + Kế thừa: Là cho phép bạn tái sử dụng code cha trong thằng con
 
-![So Sanh Kế Tập và Kế Thừa](./tk_Class_OPP_Xam_Nhap_private.java)
+![So Sanh Kế Tập và Kế Thừa](./tk_4%20Sử%20khác%20nhau%20của%20Kết%20Tập%20và%20%20Kế%20Thừa.png)
 
 
+          -  Tính đóng gói:
+                              public	: Bất kỳ đâu trong chương trình
+                              protected	: Trong lớp, các lớp con và các lớp trong cùng gói
+                              private	: Chỉ trong lớp cha 
+          - Tính đa hình : Cho phép bạn sử dụng lại hàm của thằng cha
+                         @Override
+                    -->  
 
-          - package :  Xây dựng đóng gói 
+![VD: Cách sử dụng đa hình](./tk_Class_OPP_DaHinh.java)
           
+          - Tính trừ tượng :  Cho  phép bạn khai báo trước rồi dùng đa hình để gọi lại (Xem ví dụ để hiểu dõ hơn.)
+                         abstract class <Tên_Class>
+![Vd: Cách sử dụng tính năng trừu tượng](./tk_Class_OPP_TruuTuong.java)
 
-
-
+          - package 
+          
 ///////////////////////////////////////// Sử lý ngoại lệ  (try -  catch )//////////////////////
           try :  Nhập trường hợp ngoại lệ
           catch: Trường hợp sử lý ngoại lệ

@@ -1,4 +1,3 @@
-tim hieu  them ve  tinh  dong goi + package
-tim hieu them  da hinh java 
-link dahinh:  https://gemini.google.com/app/4aec99c21e4fac49?hl=vi
-xem slide tong quat
+tim hieu  them ve   package
+xem slide tong quat .  
+và hoc nt may chuongg cuoi
