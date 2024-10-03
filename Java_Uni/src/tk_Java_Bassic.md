@@ -25,7 +25,7 @@
      - concat () or jonin() : Thêm chuỗi
      - indeOf() : tìm vị trí trong chuỗi
      - supper  : truy xuất thằng cha trong class ( OPP: Lập trình hướng đôí tượng)
-
+     - equals() : so  sánh hai  chuỗi có bằng không (True :  có | False : không)
 
 
 ////////////////////////////////////// Quan trong //////////////////

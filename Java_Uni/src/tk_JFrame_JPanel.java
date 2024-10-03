@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class tk_JPanel {
+public class tk_JFrame_JPanel {
     public static void main(String[] args) {
         // Tạo JFrame
         JFrame frame = new JFrame("Ví dụ về JPanel");

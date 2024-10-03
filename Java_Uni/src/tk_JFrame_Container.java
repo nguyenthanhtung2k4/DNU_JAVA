@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class tk_Container {
+public class tk_JFrame_Container {
     public static void main(String[] args) {
         // Tạo JFrame
         JFrame frame = new JFrame("Ví dụ về Container");

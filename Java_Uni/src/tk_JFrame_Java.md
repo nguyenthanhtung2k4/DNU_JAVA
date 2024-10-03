@@ -1,5 +1,92 @@
+# Các Nút BẤM LIÊN QUAN ĐẾN JFrame
+## 1. `button`
+- **Mô tả**: Sử dụng nút bấm
+- **Cách dùng**: 
+```java
+        JButton button = new JButton("Nhấn vào đây");
+        button.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+                // Xử lý khi nút được nhấn
+                System.out.println("Nút đã được nhấn");
+        }
+        });
+```
 
-# Các phương thức và cách sử dụng JFrame
+## 2. `JToggleButton`
+- **Mô tả**: Nút bấm có thể ở hai trạng thái: bật hoặc tắt.
+- **Cách dùng**: 
+```java
+        JToggleButton toggleButton = new JToggleButton("Bật/Tắt");
+        toggleButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+                if (toggleButton.isSelected()) {
+                System.out.println("Nút đã được bật");
+                } else {
+                System.out.println("Nút đã được tắt");
+                }
+        }
+        });
+```
+## 3. `JMenuItem`
+- **Mô tả**: Nút bấm trong menu.
+- **Cách dùng**: 
+```java
+        JMenuItem menuItem = new JMenuItem("Mở");
+        menuItem.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+                // Xử lý khi menu item được chọn
+                System.out.println("Mở file");
+        }
+        });
+        JMenu menu = new JMenu("File");
+        menu.add(menuItem);
+        JMenuBar menuBar = new JMenuBar();
+        menuBar.add(menu);
+        frame.setJMenuBar(menuBar);
+```
+## 4. `JCheckBox | JRadioCheck`
+- **Mô tả**: Check box
+- **Cách dùng**: 
+```java
+        // box
+        JCheckBox checkBox = new JCheckBox("Đồng ý với điều khoản");
+        // radio
+        JRadioButton radioButton = new JRadioButton("Nam");
+        ButtonGroup group = new ButtonGroup();
+        group.add(radioButton);
+```
+## 5. `JComboBox`
+- **Mô tả**:  Hộp chọn, cung cấp một danh sách các tùy chọn để người dùng lựa chọn.
+- **Cách dùng**: 
+```java
+        String[] items = {"Java", "C++", "Python"};
+        JComboBox comboBox = new JComboBox(items);
+```
+## 6. `JPasswordField`
+- **Mô tả**:  input passwword  khong cho  nhin thay  mat  khau
+- **Cách dùng**: 
+```java
+        JPasswordField passwordField = new JPasswordField(20);
+       
+```
+## 4. `abc`
+- **Mô tả**:
+- **Cách dùng**: 
+```java
+       
+```
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+# Các phương thức và cách SỬ DỤNG JFrame
 
   `JFrame` là một lớp trong Java Swing dùng để tạo cửa sổ giao diện với tiêu đề và viền. Dưới đây là danh sách các phương thức phổ biến liên quan đến `JFrame`, kèm theo giải thích và ví dụ.
 
@@ -50,12 +137,50 @@
 
 ## 6. `setLayout(LayoutManager manager)`
 - **Mô tả**: Đặt trình quản lý bố cục để sắp xếp các thành phần bên trong cửa sổ.
-  - Bố cục thường dùng: `FlowLayout`, `BorderLayout`, `GridLayout`, v.v.
+  - Bố cục thường dùng:
+                `FlowLayout`: Mặc định của JPanel, tự động xếp các thành phần theo hàng ngang. Khi hết chỗ, nó sẽ tự động xuống dòng.
+                `GridLayout`: Sắp xếp các thành phần thành lưới các hàng và cột.
+                `BoxLayout`: Cho phép bạn sắp xếp các thành phần theo hướng ngang hoặc dọc.
+                `GridBagLayout`: Cung cấp khả năng kiểm soát bố cục chi tiết hơn.
 - **Cách dùng**: 
 ```java
         JFrame frame = new JFrame();
         frame.setLayout(new FlowLayout());  // Đặt bố cục FlowLayout để sắp xếp các thành phần
 ```
+## 6.1 `GirdBagContraints()`
+- **Mô tả**: Nó là một hàm riêng không nằm trong SetLayout Chính vì vậy khi dùng phải khởi tạo nó.
+  - Các thuộc tính thường dùng:
+                `gridx` và `gridy`: Xác định vị trí cột và hàng của thành phần.
+                `gridwidth` và `gridheight`:Xác định số cột và số hàng mà thành phần sẽ chiếm.`weightx` và `weighty`:Xác định trọng số của thành phần khi thay đổi kích thước
+                `anchor`:Định nghĩa vị trí của thành phần bên trong một ô lưới khi kích thước của ô lớn hơn kích thước của thành phần.
+                        *Các giá trị thường* dùng: 
+                        `GridBagConstraints`
+                        `CENTER`,
+                        `GridBagConstraints`.
+                        `WEST`, 
+                        `GridBagConstraints`.
+                        `EAST`, v.v.
+                `fill`:Quy định cách thành phần lấp đầy không gian trong ô lưới. 
+                        *Các giá trị*:
+                                `NONE`: Thành     phần giữ nguyên kích thước.
+                                `HORIZONTAL`: Giãn theo chiều ngang.
+                                `VERTICAL`: Giãn theo chiều dọc.
+                                `BOTH`: Giãn theo cả hai chiều.
+                `insets`:Xác định khoảng cách giữa thành phần và các thành phần khác (khoảng đệm).
+                `ipadx` và `ipady`:Xác định kích thước nội bộ thêm vào cho thành phần theo chiều ngang (ipadx) và chiều dọc (ipady).
+
+```java
+        // Cấu hình cho Button 1
+        gbc.gridx = 0; // Cột 0
+        gbc.gridy = 0; // Hàng 0
+        gbc.gridwidth = 1; // Chiếm 1 ô ngang
+        gbc.gridheight = 1; // Chiếm 1 ô dọc
+        gbc.weightx = 1.0; // Giãn theo chiều ngang khi cửa sổ mở rộng
+        gbc.weighty = 1.0; // Giãn theo chiều dọc khi cửa sổ mở rộng
+        gbc.fill = GridBagConstraints.BOTH; // Giãn đều theo cả chiều ngang và dọc
+```
+![Vd:  Sử dụng GirdBagContraints](./tk_JFrame_GirdBagContraints.java)
+
 
 ## 7. `getJPane()`
 - **Mô tả**: Trả về nội dung của cửa sổ, là nơi chứa tất cả các thành phần.
@@ -81,8 +206,8 @@
 - **Container**
         -  Được sử dụng để quản lý toàn bộ bố cục của các thành phần trong `JFrame`. Ví dụ về `Container` sử dụng `BorderLayout` để `sắp xếp các thành phần`.
 
-![Cách dùng Panel](./tk_JPanel.java)
-![Cách dùng Container](./tk_Container.java)
+![Cách dùng Panel](./tk_JFrame_JPanel.java)
+![Cách dùng Container](./tk_JFrame_Container.java)
 
 
 ## 8. `pack()`
