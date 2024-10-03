@@ -188,6 +188,7 @@
 ![Vd:Xử_lý_ngoại_lệ](./tk_try_catch_XuLyNgoaiLe.class)
 
 
+
 ///////////////////////////////////////// Claass (OPP OOP: Hướng đối tượng) //////////////////////
 
           - class <TênClass> {} : Để khai báo cho hướng đối tượng:
@@ -246,3 +247,28 @@
           - Tổng quát: 
 
 ///////////////////////////////////////// JFame (Giao diện destop java) //////////////////////
+          - Hiện thị Jfame: 
+               setVisible
+
+          - Các thành phần giao diện (Components): Đây là những khối xây dựng cơ bản của một giao diện Swing. Một số thành phần phổ biến bao gồm:
+
+               JButton: Nút bấm
+               JLabel: Nhãn
+               JTextField: Hộp văn bản một dòng
+               JTextArea: Hộp văn bản nhiều dòng
+               JPanel: Panel để nhóm các thành phần khác
+               JFrame: Cửa sổ chính của ứng dụng
+               ...
+          - Container: Là một thành phần có thể chứa các thành phần khác. Ví dụ: JFrame, JPanel là các container.
+
+          - Layout manager: Quản lý cách các thành phần được sắp xếp trong một container. Các layout manager phổ biến bao gồm:
+
+               FlowLayout: Sắp xếp các thành phần theo hàng ngang hoặc dọc.
+               BorderLayout: Sắp xếp các thành phần theo các vị trí Bắc, Nam, Đông, Tây, Trung.
+               GridLayout: Sắp xếp các thành phần thành lưới.
+               ...
+          - Event listener: Dùng để lắng nghe và xử lý các sự kiện như click chuột, nhập liệu,...
+
+          
+
+![VD tham khao](./tk_JFrame_Java(Giaodien_Destop).csv)

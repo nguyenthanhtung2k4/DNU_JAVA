@@ -168,7 +168,7 @@
 ///////////////////////////////////////// Sử lý ngoại lệ  (try -  catch )//////////////////////
           try :  Nhập trường hợp ngoại lệ
           catch: Trường hợp sử lý ngoại lệ
-               - Các trường hợp ngoại lệ hay gặp:
+#               - Các trường hợp ngoại lệ hay gặp:
                          InputMismatchException: Bắt lỗi khi người dùng nhập vào không phải là số nguyên.
                          FileNotFoundException : (IOException)Xảy ra khi có lỗi liên quan đến nhập xuất (ví dụ: file không tồn tại).
                          NullPointerException: Xảy ra khi bạn cố gắng truy cập một đối tượng null.
@@ -188,16 +188,17 @@
 ![Vd:Xử_lý_ngoại_lệ](./tk_try_catch_XuLyNgoaiLe.class)
 
 
+
 ///////////////////////////////////////// Claass (OPP OOP: Hướng đối tượng) //////////////////////
 
           - class <TênClass> {} : Để khai báo cho hướng đối tượng:
           - class <TênClass> extends <ClassCon> {} :  Cho phép bạn gọi lại class con trong cha
           - New :  Cho  phép bạn Khởi tạo  Class
-          - Các phương thức khởi tạo:   không có giá trị trả về.
+#          - Các phương thức khởi tạo:   không có giá trị trả về.
                               + Có tham số
                               +  Không tham số (Mặc định)
 
-          - Các phuong thức Class:
+#          - Các phuong thức Class:
                               class:
                               void : Là chỉ in ra không có kiểu trả về ( giống c++)
                               static :Nó giống như biến toàn cục trọng (python , php) biến được lưu trữ trong chương trình.Và có thể gọi lại trong bất kì lúc nào.
@@ -207,12 +208,12 @@
                               final :  Không cho phép thay đổi giá trị.
 
 
-          - Tính kết tập OPP: 
+#          - Tính kết tập OPP: 
                     --> Cho phép bạn  tái sử dụng  code ngoài ra
 ![Vd1:Sử dụng Kết tập](./tk_Class_OPP_KeTap.java)
 ![Vd2:Sử dụng Kết tập](./tk_Class_OPP_KeTap2.java)
 
-          - Tính Kế thừa OPP: Cho phép bạn kế thừa  code cha vào code con
+#          - Tính Kế thừa OPP: Cho phép bạn kế thừa  code cha vào code con
                <ClassCon> extends  <ClassCha>
                supper : cho  phép bạn  kết thừa class lớp cha sàn thằngcon
 
@@ -220,29 +221,39 @@
 ![VD: Cách sử dụng Kế thừa](./tk_Class_OPP_KeThua.java)
 ![VD: Nguyên lý kế thừa](./tk_4Nguyên%20Lý%20Kế%20Thừa%20(%20private,%20protected,public).png)
 
-     ==>  Sử khác nhau  của Kết tập và Kế thừa là:
+**==>  Sử khác nhau  của Kết tập và Kế thừa là:**
                     + Kế tập : Là các đối tượng độc lập ( Lớp này là đối tượng của lớp kia)
                     + Kế thừa: Là cho phép bạn tái sử dụng code cha trong thằng con
 
 ![So Sanh Kế Tập và Kế Thừa](./tk_4%20Sử%20khác%20nhau%20của%20Kết%20Tập%20và%20%20Kế%20Thừa.png)
 
 
-          -  Tính đóng gói:
+#         -  Tính đóng gói:
                               public	: Bất kỳ đâu trong chương trình
                               protected	: Trong lớp, các lớp con và các lớp trong cùng gói
                               private	: Chỉ trong lớp cha 
-          - Tính đa hình : Cho phép bạn sử dụng lại hàm của thằng cha
+#          - Tính đa hình : Cho phép bạn sử dụng lại hàm của thằng cha
                          @Override
                     -->  
 
 ![VD: Cách sử dụng đa hình](./tk_Class_OPP_DaHinh.java)
           
-          - Tính trừ tượng :  Cho  phép bạn khai báo trước rồi dùng đa hình để gọi lại (Xem ví dụ để hiểu dõ hơn.)
+#         - Tính trừ tượng :  Cho  phép bạn khai báo trước rồi dùng đa hình để gọi lại (Xem ví dụ để hiểu dõ hơn.)
                          abstract class <Tên_Class>
 ![Vd: Cách sử dụng tính năng trừu tượng](./tk_Class_OPP_TruuTuong.java)
 
-          - package 
+#          - package 
           
-          - Tổng quát: 
+#          - Tổng quát: 
 
 ///////////////////////////////////////// JFame (Giao diện destop java) //////////////////////
+## JFrame là gì:
+          -  JFrame là một thư viện cho phép bạn tạo ra các nút , text  để taoh thành một phần mềm chạy được đc trên Pc ( viết bangef ngôn ngữ java)
+**Lưu ý**: Có sự khác nhau về container và JPanel ==>  Cùng về sắp xếp giao diện nhưng mỗi thằng có một thế mạng riêng
+
+![Sự khác nhau của containẻ và Jpanel](./tk_Container_VS_JPanel.txt)
+
+////////////// Các file liên quan đến  JFrame
+
+![Cách dùng JFrame](./tk_JFrame_Java.md)
+![Các hàm liên quan đến JFrame](./tk_JFrame_Java(Giaodien_Destop).csv)
