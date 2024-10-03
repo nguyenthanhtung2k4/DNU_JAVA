@@ -154,12 +154,9 @@
                 `gridwidth` và `gridheight`:Xác định số cột và số hàng mà thành phần sẽ chiếm.`weightx` và `weighty`:Xác định trọng số của thành phần khi thay đổi kích thước
                 `anchor`:Định nghĩa vị trí của thành phần bên trong một ô lưới khi kích thước của ô lớn hơn kích thước của thành phần.
                         *Các giá trị thường* dùng: 
-                        `GridBagConstraints`
-                        `CENTER`,
-                        `GridBagConstraints`.
-                        `WEST`, 
-                        `GridBagConstraints`.
-                        `EAST`, v.v.
+                        `GridBagConstraints.CENTER`: CAN CHINH GIUA
+                        `GridBagConstraints.WEST`  : cAN SANG TRAI
+                        `GridBagConstraints.EAST`  : cAN SANG PHAI
                 `fill`:Quy định cách thành phần lấp đầy không gian trong ô lưới. 
                         *Các giá trị*:
                                 `NONE`: Thành     phần giữ nguyên kích thước.

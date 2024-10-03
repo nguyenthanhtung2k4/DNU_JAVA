@@ -107,7 +107,7 @@ public class test {
                 String password = new String(passwordField.getPassword());
                 
                 // Kiểm tra thông tin đăng nhập
-                if (username.equals("admin") && password.equals("password")) {
+                if (username.equals("admin") && password.equals("admin")) {
                     messageLabel.setForeground(Color.GREEN);
                     messageLabel.setText("Đăng nhập thành công!");
                 } else {
