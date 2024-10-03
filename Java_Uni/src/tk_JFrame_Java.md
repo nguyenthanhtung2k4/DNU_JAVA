@@ -75,10 +75,10 @@
 ```
 
 ##### Sử khác nhau của JPanel Và Container là: 
-**Jpanel**
+- **Jpanel**
         - Được sử dụng để nhóm và sắp xếp các thành phần thành các khối nhỏ hơn bên trong `JFrame`. 
         - Ví dụ về `JPanel` sử dụng `FlowLayout` mặc định để sắp xếp các thành phần theo dòng từ `trái qua phải`.
-**Container**
+- **Container**
         -  Được sử dụng để quản lý toàn bộ bố cục của các thành phần trong `JFrame`. Ví dụ về `Container` sử dụng `BorderLayout` để `sắp xếp các thành phần`.
 
 ![Cách dùng Panel](./tk_JPanel.java)

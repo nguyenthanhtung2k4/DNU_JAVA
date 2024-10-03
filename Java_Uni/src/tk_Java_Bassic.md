@@ -168,7 +168,7 @@
 ///////////////////////////////////////// Sử lý ngoại lệ  (try -  catch )//////////////////////
           try :  Nhập trường hợp ngoại lệ
           catch: Trường hợp sử lý ngoại lệ
-               - Các trường hợp ngoại lệ hay gặp:
+#               - Các trường hợp ngoại lệ hay gặp:
                          InputMismatchException: Bắt lỗi khi người dùng nhập vào không phải là số nguyên.
                          FileNotFoundException : (IOException)Xảy ra khi có lỗi liên quan đến nhập xuất (ví dụ: file không tồn tại).
                          NullPointerException: Xảy ra khi bạn cố gắng truy cập một đối tượng null.
@@ -198,7 +198,7 @@
                               + Có tham số
                               +  Không tham số (Mặc định)
 
-          - Các phuong thức Class:
+#          - Các phuong thức Class:
                               class:
                               void : Là chỉ in ra không có kiểu trả về ( giống c++)
                               static :Nó giống như biến toàn cục trọng (python , php) biến được lưu trữ trong chương trình.Và có thể gọi lại trong bất kì lúc nào.
@@ -208,12 +208,12 @@
                               final :  Không cho phép thay đổi giá trị.
 
 
-          - Tính kết tập OPP: 
+#          - Tính kết tập OPP: 
                     --> Cho phép bạn  tái sử dụng  code ngoài ra
 ![Vd1:Sử dụng Kết tập](./tk_Class_OPP_KeTap.java)
 ![Vd2:Sử dụng Kết tập](./tk_Class_OPP_KeTap2.java)
 
-          - Tính Kế thừa OPP: Cho phép bạn kế thừa  code cha vào code con
+#          - Tính Kế thừa OPP: Cho phép bạn kế thừa  code cha vào code con
                <ClassCon> extends  <ClassCha>
                supper : cho  phép bạn  kết thừa class lớp cha sàn thằngcon
 
@@ -221,54 +221,37 @@
 ![VD: Cách sử dụng Kế thừa](./tk_Class_OPP_KeThua.java)
 ![VD: Nguyên lý kế thừa](./tk_4Nguyên%20Lý%20Kế%20Thừa%20(%20private,%20protected,public).png)
 
-     ==>  Sử khác nhau  của Kết tập và Kế thừa là:
+**==>  Sử khác nhau  của Kết tập và Kế thừa là:**
                     + Kế tập : Là các đối tượng độc lập ( Lớp này là đối tượng của lớp kia)
                     + Kế thừa: Là cho phép bạn tái sử dụng code cha trong thằng con
 
 ![So Sanh Kế Tập và Kế Thừa](./tk_4%20Sử%20khác%20nhau%20của%20Kết%20Tập%20và%20%20Kế%20Thừa.png)
 
 
-          -  Tính đóng gói:
+#          -  Tính đóng gói:
                               public	: Bất kỳ đâu trong chương trình
                               protected	: Trong lớp, các lớp con và các lớp trong cùng gói
                               private	: Chỉ trong lớp cha 
-          - Tính đa hình : Cho phép bạn sử dụng lại hàm của thằng cha
+#          - Tính đa hình : Cho phép bạn sử dụng lại hàm của thằng cha
                          @Override
                     -->  
 
 ![VD: Cách sử dụng đa hình](./tk_Class_OPP_DaHinh.java)
           
-          - Tính trừ tượng :  Cho  phép bạn khai báo trước rồi dùng đa hình để gọi lại (Xem ví dụ để hiểu dõ hơn.)
+#          - Tính trừ tượng :  Cho  phép bạn khai báo trước rồi dùng đa hình để gọi lại (Xem ví dụ để hiểu dõ hơn.)
                          abstract class <Tên_Class>
 ![Vd: Cách sử dụng tính năng trừu tượng](./tk_Class_OPP_TruuTuong.java)
 
-          - package 
+#          - package 
           
-          - Tổng quát: 
+#          - Tổng quát: 
 
 ///////////////////////////////////////// JFame (Giao diện destop java) //////////////////////
-          - Hiện thị Jfame: 
-               setVisible
+# JFrame là gì?
+     - Hiểu đơn giản nó là một trong những thư viên cho phép bạn tạo ra phần mềm chạy trên pc ( viết bằng Java)
+-    **Lưu ý**: Container và JPanel ==> Liên quan đến phân bố cục giao diện nhưng chúng khác nhau 1 chút.
+![Sự khác nhau của Container và JPanel](./tk_Container_VS_JPanel.txt)
 
-          - Các thành phần giao diện (Components): Đây là những khối xây dựng cơ bản của một giao diện Swing. Một số thành phần phổ biến bao gồm:
-
-               JButton: Nút bấm
-               JLabel: Nhãn
-               JTextField: Hộp văn bản một dòng
-               JTextArea: Hộp văn bản nhiều dòng
-               JPanel: Panel để nhóm các thành phần khác
-               JFrame: Cửa sổ chính của ứng dụng
-               ...
-          - Container: Là một thành phần có thể chứa các thành phần khác. Ví dụ: JFrame, JPanel là các container.
-
-          - Layout manager: Quản lý cách các thành phần được sắp xếp trong một container. Các layout manager phổ biến bao gồm:
-
-               FlowLayout: Sắp xếp các thành phần theo hàng ngang hoặc dọc.
-               BorderLayout: Sắp xếp các thành phần theo các vị trí Bắc, Nam, Đông, Tây, Trung.
-               GridLayout: Sắp xếp các thành phần thành lưới.
-               ...
-          - Event listener: Dùng để lắng nghe và xử lý các sự kiện như click chuột, nhập liệu,...
-
-          
-
-![VD tham khao](./tk_JFrame_Java(Giaodien_Destop).csv)
+# Các hàm liên quan JFrame tham khảo bên dưới:
+![Tham khảo JFrame cơ bản](./tk_JFrame_Java(Giaodien_Destop).csv)
+![Tham khảo JFrame nâng cao đầy đủ hơn](./tk_JFrame_Java.md)

@@ -194,7 +194,7 @@
           - class <TênClass> {} : Để khai báo cho hướng đối tượng:
           - class <TênClass> extends <ClassCon> {} :  Cho phép bạn gọi lại class con trong cha
           - New :  Cho  phép bạn Khởi tạo  Class
-#          - Các phương thức khởi tạo:   không có giá trị trả về.
+          - Các phương thức khởi tạo:   không có giá trị trả về.
                               + Có tham số
                               +  Không tham số (Mặc định)
 
@@ -228,7 +228,7 @@
 ![So Sanh Kế Tập và Kế Thừa](./tk_4%20Sử%20khác%20nhau%20của%20Kết%20Tập%20và%20%20Kế%20Thừa.png)
 
 
-#         -  Tính đóng gói:
+#          -  Tính đóng gói:
                               public	: Bất kỳ đâu trong chương trình
                               protected	: Trong lớp, các lớp con và các lớp trong cùng gói
                               private	: Chỉ trong lớp cha 
@@ -238,7 +238,7 @@
 
 ![VD: Cách sử dụng đa hình](./tk_Class_OPP_DaHinh.java)
           
-#         - Tính trừ tượng :  Cho  phép bạn khai báo trước rồi dùng đa hình để gọi lại (Xem ví dụ để hiểu dõ hơn.)
+#          - Tính trừ tượng :  Cho  phép bạn khai báo trước rồi dùng đa hình để gọi lại (Xem ví dụ để hiểu dõ hơn.)
                          abstract class <Tên_Class>
 ![Vd: Cách sử dụng tính năng trừu tượng](./tk_Class_OPP_TruuTuong.java)
 
@@ -247,13 +247,11 @@
 #          - Tổng quát: 
 
 ///////////////////////////////////////// JFame (Giao diện destop java) //////////////////////
-## JFrame là gì:
-          -  JFrame là một thư viện cho phép bạn tạo ra các nút , text  để taoh thành một phần mềm chạy được đc trên Pc ( viết bangef ngôn ngữ java)
-**Lưu ý**: Có sự khác nhau về container và JPanel ==>  Cùng về sắp xếp giao diện nhưng mỗi thằng có một thế mạng riêng
+# JFrame là gì?
+     - Hiểu đơn giản nó là một trong những thư viên cho phép bạn tạo ra phần mềm chạy trên pc ( viết bằng Java)
+-    **Lưu ý**: Container và JPanel ==> Liên quan đến phân bố cục giao diện nhưng chúng khác nhau 1 chút.
+![Sự khác nhau của Container và JPanel](./tk_Container_VS_JPanel.txt)
 
-![Sự khác nhau của containẻ và Jpanel](./tk_Container_VS_JPanel.txt)
-
-////////////// Các file liên quan đến  JFrame
-
-![Cách dùng JFrame](./tk_JFrame_Java.md)
-![Các hàm liên quan đến JFrame](./tk_JFrame_Java(Giaodien_Destop).csv)
+# Các hàm liên quan JFrame tham khảo bên dưới:
+![Tham khảo JFrame cơ bản](./tk_JFrame_Java(Giaodien_Destop).csv)
+![Tham khảo JFrame nâng cao đầy đủ hơn](./tk_JFrame_Java.md)
