@@ -72,11 +72,14 @@
         JPasswordField passwordField = new JPasswordField(20);
        
 ```
-## 4. `abc`
-- **Mô tả**:
+## 4. `setEditable`
+- **Mô tả**: khong cho  pgep ngioi  dung chinh sua
 - **Cách dùng**: 
 ```java
-       
+       JTextField textField = new JTextField("Bôi đen hoặc copy văn bản trong JTextField", 30);
+
+        // Không cho phép chỉnh sửa văn bản
+        textField.setEditable(false);
 ```
 
 
@@ -178,9 +181,22 @@
 ```
 ![Vd:  Sử dụng GirdBagContraints](./tk_JFrame_GirdBagContraints.java)
 
+## 6.1 `JOptionPane`
+- **Mô tả**: Hiên thi ra thanh thông báo cho  người dùng (information - pane)
+- **Các hàm liên quan**: 
+                        showConfirmDialog() :
+                        showInputDialog()   :
+
+- **Cách dùng**: 
+```java
+                        // Tạo một hộp thoại xác nhận
+                        int option = JOptionPane.showConfirmDialog(null, "Bạn có muốn tiếp tục không?", "Xác nhận", JOptionPane.YES_NO_OPTION);
+```
+
+![Vd suu dung Information](./tk_Class_OPP_Message.java)
 
 ## 7. `getJPane()`
-- **Mô tả**: Trả về nội dung của cửa sổ, là nơi chứa tất cả các thành phần.
+- **Mô tả**: Trả về nội dung của cửa sổ, là nơi chứa tất cả các thành phần. JFanel panel
 - **Cách dùng**: 
 ```java
         JFrame frame = new JFrame();
@@ -188,7 +204,7 @@
         pane.setLayout(new BorderLayout());  // Đặt bố cục BorderLayout cho nội dung
 ```
 ## 7.1 `getContentPane()`
-- **Mô tả**: Trả về nội dung của cửa sổ, là nơi chứa tất cả các thành phần.
+- **Mô tả**: Trả về nội dung của cửa sổ, là nơi chứa tất cả các thành phần. container
 - **Cách dùng**: 
 ```java
         JFrame frame = new JFrame();
