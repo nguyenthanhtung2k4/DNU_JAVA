@@ -1,3 +1,0 @@
-tim hieu  them ve   package + Interface + Tong quat
-xem slide tong quat .  
-và hoc nt may chuongg cuoi

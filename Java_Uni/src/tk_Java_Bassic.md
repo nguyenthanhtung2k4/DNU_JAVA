@@ -185,7 +185,7 @@
                // Xử lý lỗi chia cho 0
           }
 ```
-![Vd:Xử_lý_ngoại_lệ](./tk_try_catch_XuLyNgoaiLe.class)
+![Vd:Xử_lý_ngoại_lệ](./tk_try_catch_XuLyNgoaiLe.java)
 
 
 
