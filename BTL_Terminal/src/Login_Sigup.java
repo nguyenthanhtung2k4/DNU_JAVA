@@ -37,9 +37,9 @@ class sigup extends basebank{
 
 public class Login_Sigup {
      public static void main(String[] args) {
-         System.out.println("ThanhTung");
+         
          sigup sigup= new sigup();
          sigup.signup("thanhg", "123456");
-         System.out.println("Login : "+login("thanhg", "123456"));
+        
      }
 }

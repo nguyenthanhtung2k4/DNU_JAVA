@@ -17,18 +17,18 @@
                          System.out.print("tung"+a)
 ```
 
-////////////////////////////////////// Các hàm trong Java  //////////////////////////////////////////
+////////////////////////////////////// Các hàm trong Java inport  //////////////////////////////////////////
      - length :  Kiểm tra độ dài của mảng , object ....
      - toUppercase() : in hoa
      - toLowerCase() : in thuong
      - strim() : Loại bỏ khoảng trắng
      - concat () or jonin() : Thêm chuỗi
      - indeOf() : tìm vị trí trong chuỗi
-     - supper  : truy xuất thằng cha trong class ( OPP: Lập trình hướng đôí tượng)
+     - super  : truy xuất thằng cha trong class ( OPP: Lập trình hướng đôí tượng)
      - equals() : so  sánh hai  chuỗi có bằng không (True :  có | False : không)
 
 
-////////////////////////////////////// Quan trong //////////////////
+////////////////////////////////////// Quan trong import //////////////////
           -  Trong java không cho phép sử dụng chỉ số âm
           - Khai báo thư viện  Scanner : Cho phép bạn nhập vào để lấy các giá trị khi nhập vào.
           - continue :  Cho phép bạn nhảy bước hay nói cách khác cho phép bạn bỏ qua bước đó
@@ -164,6 +164,16 @@
           - Khai báo mảng cũng có thể dùng  với thư viện bên ngoài .
           
 ![Vd: Sử dụng Arr](./tk_Array.java)
+///////////////////////////////////////// Array ////////////////////////////////
+
+///////////////////////////////////////// Array ////////////////////////////////
+
+///////////////////////////////////////// Array ////////////////////////////////
+
+///////////////////////////////////////// Array ////////////////////////////////
+
+///////////////////////////////////////// Array ////////////////////////////////
+
 
 ///////////////////////////////////////// Sử lý ngoại lệ  (try -  catch )//////////////////////
           try :  Nhập trường hợp ngoại lệ
@@ -245,6 +255,7 @@
 #          - package 
           
 #          - Tổng quát: 
+
 
 ///////////////////////////////////////// JFame (Giao diện destop java) //////////////////////
 # JFrame là gì?
