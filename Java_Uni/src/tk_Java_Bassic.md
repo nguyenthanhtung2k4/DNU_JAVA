@@ -26,7 +26,7 @@
      - indeOf() : tìm vị trí trong chuỗi
      - super  : truy xuất thằng cha trong class ( OPP: Lập trình hướng đôí tượng)
      - equals() : so  sánh hai  chuỗi có bằng không (True :  có | False : không)
-
+     - equalsIgnoreCase() : không phân biệt chữ hoa chứ thường.
 
 ////////////////////////////////////// Quan trong import //////////////////
           -  Trong java không cho phép sử dụng chỉ số âm
