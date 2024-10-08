@@ -1,0 +1,10 @@
+Vì bài Báo cáo lớn môn Java thầy không cho  sử dụng Jframe chính vì vậy chương trình phát triền tạm thời chỉ có các chức năng:
+     + Login
+     + Rút tiền 
+     + Gửi tiền
+     + Lịch sử 
+     ===> Các chức năng trên thầy có thể hoàn thiện và sử dụng được
+     Các chức năng nâng cao: 
+          +  Quản lý đầu tư,
+          +  Bank tiền sang stk chx hoạt động....
+          
