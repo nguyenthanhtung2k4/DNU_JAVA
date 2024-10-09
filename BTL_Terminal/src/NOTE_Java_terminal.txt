@@ -1,3 +1,3 @@
-* Hoan thanh  login +  create a new account 
--  Cần làm thêm  phần lưu trữ thông tin 
-- Check  phần  login thông tin email + pass (thanh con  thi  vao  khong thi out )
+tim hieu  them  ve  tesstType |   tesst
+https://gemini.google.com/app/4b95f43fcebdaf98?hl=vi
+can xu ly du lieu  luu vao  file  va  phat trien them .

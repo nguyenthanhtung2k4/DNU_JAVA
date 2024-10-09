@@ -25,6 +25,9 @@ public class App {
                 case 2:
                     login();
                     break;
+                case 3:
+                    System.out.println("Good bye !");
+                    break;
                 default:
                     System.out.println("Vui long chon lai !");
                     break;
