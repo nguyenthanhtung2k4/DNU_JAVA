@@ -1,16 +1,14 @@
+
+import java.util.Map;
+import java.util.HashMap;
+
 public class AccountBank {
-     private  String name, emai, password , adrees; private  double money; int phone;
+    private  String name, emai, sex,password , adrees; private  double money; int phone;
+     
 
-     public  AccountBank(String email, String password){
-          // if ( email == this.email || ){
-          //      this.emai = email;
-          // }else{
+    public AccountBank(){};
 
-          // }
-          this.emai=  email;
-          this.password= password;
-     }
-     public AccountBank(String name, String email, String adrees, int phone , String password , double money) {
+    public AccountBank(String name, String email, String sex , String adrees, int phone , String password , double money) {
           this.name = name;
           this.emai = email;
           this.password = password;
@@ -19,11 +17,11 @@ public class AccountBank {
           this.phone=phone;
      }
 
-     public double getMoney() {
+    public double getMoney() {
           return money;
      }
 
-     public  void setMoney(double money) {
+    public  void setMoney(double money) {
           if (money>=0){
                this.money = money;
           }else{
@@ -76,5 +74,21 @@ public class AccountBank {
     public String toString() {
          return "AccountBank \n\tname: " + name + "\n\temai: " + emai + "\n\tpassword: " + password + "\n\tmoney: " + money + "\n\n";
     }
+
+//  arr  mang   java
+    public void ArrayBank(){
+        // Map<String , Object> map = new HashMap<>();
+        // map.add("name", AcgetName()
+
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
      
 }
