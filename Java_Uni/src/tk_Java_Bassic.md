@@ -21,12 +21,16 @@
      - length :  Kiểm tra độ dài của mảng , object ....
      - toUppercase() : in hoa
      - toLowerCase() : in thuong
+     - toArray() : Chuyển đổi từ kiểu dữ liệu khác sang mảng.
+     - isEmpty() : Kiểm tra chúng có tồn tại hay không.
      - strim() : Loại bỏ khoảng trắng
+     - container(<phanntu>) : Kiểm tra chúng có trong mảng, set , map  hay  không .
      - concat () or jonin() : Thêm chuỗi
      - indeOf() : tìm vị trí trong chuỗi
      - super  : truy xuất thằng cha trong class ( OPP: Lập trình hướng đôí tượng)
      - equals() : so  sánh hai  chuỗi có bằng không (True :  có | False : không)
      - equalsIgnoreCase() : không phân biệt chữ hoa chứ thường.
+     instanceof  - kiểm tra kiểu dữ  liệu
 
 ////////////////////////////////////// Quan trong import //////////////////
           -  Trong java không cho phép sử dụng chỉ số âm
@@ -117,6 +121,11 @@
                          useDelimiter() ---> Thiết lập dấu phẩy tùy chỉnh
                          close()        ---> Đóngđối tượng Scanner
 
+                         hasNext() :  true | false (Hiểu đơn giản là trả về lần lượt)
+                              -> next()
+                         hasprevious() : (đơn  giản là trả ngược lại  lần lượt)
+                              -> previous()
+                         -> LinkThamKhao : https://www.codecademy.com/resources/docs/java/iterator/previous
 ```java
           // VD1
                Scanner scanner=new Scanner(System.in);
@@ -164,15 +173,86 @@
           - Khai báo mảng cũng có thể dùng  với thư viện bên ngoài .
           
 ![Vd: Sử dụng Arr](./tk_Array.java)
-///////////////////////////////////////// Array ////////////////////////////////
+///////////////////////////////////////// Các kiểu lưu  trữ khác  ////////////////////////////////
+ArrayList: ( Hoạt động bằng  giống  mảng )
+          Là lớp triển khai List được sử dụng phổ biến nhất.
+          `Dựa trên mảng động`, cho phép truy cập nhanh các phần tử bằng chỉ số.
+          Thích hợp cho việc truy xuất ngẫu nhiên các phần tử.
+LinkedList: ( Hoạt động như danh sách liết kết kép )
+          Mỗi phần tử trong `LinkedList` chứa một tham chiếu đến phần tử trước và phần tử sau.
+          Thích hợp cho việc chèn và xóa các phần tử ở đầu hoặc cuối danh sách.
+          Ít hiệu quả hơn ArrayList khi truy xuất ngẫu nhiên.
+Vector: ( )
+          Là một phiên bản `đồng bộ` của ArrayList.
+          Nên tránh sử dụng Vector trừ khi bạn thực sự cần đồng bộ hóa.
 
-///////////////////////////////////////// Array ////////////////////////////////
+Set: (hoạt  động  giống Set python)
+     Đặc điểm:
+          Không cho phép phần tử trùng lặp.
+          Không có thứ tự xác định cho các phần tử.
+     Sử dụng:
+          Khi bạn cần một tập hợp các phần tử duy nhất.
+          Ví dụ: Lưu trữ các số nguyên tố, các từ khóa trong một từ điển.
 
-///////////////////////////////////////// Array ////////////////////////////////
+Stack:
+          Là một lớp đặc biệt của Vector, thực hiện theo nguyên tắc LIFO (Last In First Out).
+          Thường được sử dụng để thực hiện các thao tác như push, pop.
+          
+Queue:
+     Đặc điểm:
+          Tuân theo nguyên tắc FIFO (First In First Out).
+          Phần tử được thêm vào cuối danh sách và lấy ra ở đầu.
+     Sử dụng:
+          Mô phỏng các hàng đợi, xử lý các tác vụ theo thứ tự.
+          Lớp triển khai: Queue, PriorityQueue
+-----------------------------------------------------------
+Map:  giống  dictionary ( json ) trong python
+     Đặc điểm:
+          Lưu trữ các cặp khóa-giá trị.
+          Mỗi khóa phải là duy nhất.
+     Sử dụng:
+          Khi bạn cần ánh xạ giữa các khóa và giá trị.
+          Ví dụ: Lưu trữ thông tin sinh viên (key là mã sinh viên, value là đối tượng sinh viên).
+**Cách dùng**:
+     `Map.of()` : Khai báo cùng lúc nhiều giá trị luôn
+     `HashMap()`: Khai báo thêm  1 giá trị một
+     ===> Ví dụ bên dưới. ![Vd:Sử dụng Map](./tk_Storage_Map.java)
+-----------------------------------------------------------
 
-///////////////////////////////////////// Array ////////////////////////////////
 
-///////////////////////////////////////// Array ////////////////////////////////
+
+
+## ==> Cấu trúc khai báo và dùng  chúng như nhau
+### Cách dùng:
+Các phương thức bên dưới:
+               <KiểuLuu_trữ><type> new  :  khai báo  khởi tạo  cho  chúng
+               add(<phanTu>) : thêm phần tử 
+               put(<phanTu>) : thêm phần tử trong( `Map` )
+               set(<vitri> , <phantuUpdate>) : cập nhập update vao kieu  lu tru
+               get(<index>)  : Truy vấn
+               contains(<phanTu>): Kiểm tra xem phần tử có tồn tại trong danh sách hay không.
+               remove(<index>) : Xóa phần tử vị trí chỉ định
+               remove(<giá_trị>) : Xóa phần tại giá trị
+               clear() : Xóa tất cả các phần tử
+               for-each()     : duyệt tất cả các phần  tử
+               size()         : Kiểm tra kích thước của kiểu lưu trữ
+               isEmpty() : Kiểu tra có giỗng hay không
+               toArray() : Chuyển về mảng ( `trong_Set`)
+
+==> ArrayList + LinkList + Vectoer  :  Chúng dùng giống  nhau
+
+
+**Chú ý: Khi khai báo trong lưu trữ ta cũng có thể dùng list<type> = new <Cấu trú_DanhSach>**
+
+*vd: List<int> tung= new ArrayList();*
+*vd: List<int> tung= new Vector();*
+
+**List hiểu đơn giản là một kiểu danh sách trong đó nó có thể tham chiếu đến bất kì danh sách nào chứa phần tử**
+
+
+![Vd: sử dụng ArrayList](./tk_Storage_ArrayList.java)
+![Vd: sử dụng Set ](./tk_Storage_Set.java)
+![Vd: sử dụng Map ](./tk_Storage_Map.java)
 
 
 ///////////////////////////////////////// Sử lý ngoại lệ  (try -  catch )//////////////////////
