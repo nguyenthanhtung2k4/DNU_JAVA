@@ -1,0 +1,50 @@
+1. Tic-Tac-Toe (Cờ Caro)
+Mô tả: Đây là trò chơi trên bàn cờ 3x3, trong đó hai người chơi thay phiên nhau đánh dấu 'X' hoặc 'O'. Người chơi nào có 3 ký hiệu của mình xếp thành một hàng ngang, hàng dọc hoặc đường chéo trước sẽ thắng.
+OOP Concepts:
+Class: Player, Board, Game
+Methods: makeMove(), checkWinner(), displayBoard()
+2. Hangman (Trò chơi đoán chữ)
+Mô tả: Người chơi phải đoán các chữ cái của một từ bí mật. Mỗi lần đoán sai, người chơi sẽ mất một lượt. Trò chơi kết thúc khi người chơi đoán đúng hoặc hết lượt đoán.
+OOP Concepts:
+Class: Word, Player, Game
+Methods: guessLetter(), checkWin(), displayWord()
+3. Snake (Rắn săn mồi đơn giản trên terminal)
+Mô tả: Người chơi điều khiển một con rắn trên màn hình. Mục tiêu là ăn thức ăn để rắn dài hơn. Trò chơi kết thúc khi rắn va vào tường hoặc vào chính mình.
+OOP Concepts:
+Class: Snake, Food, Board
+Methods: move(), checkCollision(), grow()
+4. Battle Ship (Đánh tàu)
+Mô tả: Hai người chơi đặt tàu của mình lên một bảng lưới 10x10. Mục tiêu là bắn trúng và phá hủy toàn bộ tàu của đối thủ trước khi tàu của mình bị phá.
+OOP Concepts:
+Class: Ship, Board, Player
+Methods: placeShip(), fireShot(), checkHitOrMiss()
+5. Rock-Paper-Scissors (Kéo-Búa-Bao)
+Mô tả: Trò chơi hai người với ba lựa chọn: kéo, búa, bao. Kết quả mỗi lần chơi phụ thuộc vào lựa chọn của người chơi.
+OOP Concepts:
+Class: Player, Game
+Methods: playRound(), determineWinner()
+6. Text Adventure (Trò chơi phiêu lưu bằng văn bản)
+Mô tả: Người chơi tham gia một cuộc phiêu lưu bằng cách nhập các lệnh (như "go north", "take key"). Trò chơi mô phỏng thế giới bằng văn bản và người chơi tương tác với môi trường để giải quyết các câu đố.
+OOP Concepts:
+Class: Player, Room, Item, Game
+Methods: move(), pickItem(), useItem()
+7. Number Guessing Game (Trò chơi đoán số)
+Mô tả: Người chơi đoán một con số trong một phạm vi nhất định. Trò chơi sẽ thông báo liệu số đoán có cao hơn hay thấp hơn con số bí mật, và người chơi sẽ tiếp tục đoán cho đến khi đúng.
+OOP Concepts:
+Class: Game, Player
+Methods: makeGuess(), checkGuess()
+8. Sudoku
+Mô tả: Trò chơi sắp xếp các con số sao cho mỗi hàng, mỗi cột và mỗi khối nhỏ 3x3 đều chứa đủ các số từ 1 đến 9 mà không trùng lặp.
+OOP Concepts:
+Class: Board, Game
+Methods: solvePuzzle(), checkSolution(), displayBoard()
+9. Memory Game (Trò chơi ghi nhớ)
+Mô tả: Các cặp thẻ được xáo trộn và người chơi phải lật hai thẻ cùng lúc để tìm các cặp giống nhau. Mục tiêu là tìm tất cả các cặp trong thời gian ngắn nhất có thể.
+OOP Concepts:
+Class: Card, Board, Player
+Methods: flipCard(), checkMatch(), displayBoard()
+10. Minesweeper (Dò mìn)
+Mô tả: Người chơi mở các ô trên một bảng lưới, cố gắng không chạm phải mìn. Các ô mở ra sẽ hiển thị số lượng mìn xung quanh.
+OOP Concepts:
+Class: Board, Cell, Game
+Methods: openCell(), checkMines(), displayBoard()
