@@ -35,36 +35,36 @@ public class CreditCard extends AccountMoney {
         System.out.println("Gioi han the tin dung: " + creditLimit);
         System.out.println("So no the tin dung: " + debt);
     }
-    public void Main(){
-        Scanner scanner = new Scanner(System.in);
-        int choice;
-        do{
-            System.out.println("[0] Thoat che do the tin dung");
-            System.out.println("[1] Dung the tin dung");
-            System.out.println("[2] Thanh Toan tien the tin dung");
-            System.out.println("[3] Kiem tra thong tin the");
-                System.out.print("Nhap lua chon (0-3): ");
-            choice = scanner.nextInt();
-            switch(choice){
-                case 0:
-                    System.out.println("Thoat");
-                    break;
-                case 1:
-                    System.out.println("Nhap so tien dung: ");
-                    double amount = scanner.nextDouble();
-                    useCard(amount);
-                    break;
-                case 2:
-                    System.out.println("Nhap so tien thanh toan: ");
-                    amount = scanner.nextDouble();
-                    payDebt(amount);
-                    break;
-                case 3:
-                    checkCreditLimit();
-                    break;
-                default:
-                    System.out.println("Lua chon khong hop le");
-            }
-        }while(choice!=0);
-    }
+    // public void displayCard(){
+    //     Scanner scanner = new Scanner(System.in);
+    //     int choice;
+    //     do{
+    //         System.out.println("[0] Thoat che do the tin dung");
+    //         System.out.println("[1] Dung the tin dung");
+    //         System.out.println("[2] Thanh Toan tien the tin dung");
+    //         System.out.println("[3] Kiem tra thong tin the");
+    //             System.out.print("Nhap lua chon (0-3): ");
+    //         choice = scanner.nextInt();
+    //         switch(choice){
+    //             case 0:
+    //                 System.out.println("Thoat");
+    //                 break;
+    //             case 1:
+    //                 System.out.println("Nhap so tien dung: ");
+    //                 double amount = scanner.nextDouble();
+    //                 useCard(amount);
+    //                 break;
+    //             case 2:
+    //                 System.out.println("Nhap so tien thanh toan: ");
+    //                 amount = scanner.nextDouble();
+    //                 payDebt(amount);
+    //                 break;
+    //             case 3:
+    //                 checkCreditLimit();
+    //                 break;
+    //             default:
+    //                 System.out.println("Lua chon khong hop le");
+    //         }
+    //     }while(choice!=0);
+    // }
 }

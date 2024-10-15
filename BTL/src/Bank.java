@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.sound.sampled.Line;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -92,7 +94,9 @@ public class Bank {
           System.out.println("3. Nap tien");
           System.out.println("4. Rut Tien");
           System.out.println("5. The tin dung");
-          System.out.println("6.Vay von va tra no");
+          System.out.println("6. Lich su Giao Dich");
+          System.out.println("7.Vay von va tra no");
+
 
      }
 
@@ -253,15 +257,17 @@ public class Bank {
                                    "\n Now " + date.getDate() + "\nSo du stk: " + rut.RutTien(moneyAcc, rutTien));
                          break;
                     case 5:
-                         System.out.println("\n\tTao the tin dung\n");
-                         System.out.println("Gioi han muc the: ");
-                         double limit = scanner.nextDouble();
-                         CreditCard card = new CreditCard(Acc.getName(), Acc.getMoney(), date.getDate(), limit);
-                         card.Main();
+                         // System.out.println("\n\tTao the tin dung\n");
+                         // System.out.println("Gioi han muc the: ");
+                         // double limit = scanner.nextDouble();
+                         CreditCard card = new CreditCard(Acc.getName(), Acc.getMoney(), date.getDate(), 100);
+                         card.checkCreditLimit();
+                    
                          break;
-                    // case 6:
-                    // new VayVon().display();
-                    // break;
+                    case 6:
+                         System.out.println("\n\tXem lai lich su giao dich");
+                         moneyAcc.showHistory();
+                         break;
 
                     default:
                          System.out.println("Vui long chon lai chuc nang.");
@@ -274,20 +280,14 @@ public class Bank {
      //////////////////////////////////////////////////////// OPTION?????????????????????????
 
      public static void Thongtin() {
-          String nhap = scanner.nextLine().toUpperCase();
-          System.out.println("Ngay: " + date.getDate());
-          System.out.println("Ten: " + Acc.getName());
+          System.out.println("\tNgay dang nhap: " + date.getDate());
+          System.out.println("\nTen: " + Acc.getName());
           System.out.println("So tien Hien Co: " + moneyAcc.getMoney());
           System.out.println("Ngay sinh: " + Acc.getYear());
           System.out.println("Email: " + Acc.getEmai());
           System.out.println("Gioi tinh: " + Acc.getSex());
           System.out.println("Dia chi: " + Acc.getAdrees());
           System.out.println("So dien thoai: " + Acc.getPhone());
-          System.out.println("\nNhap Y/N xem lich su giao dich");
-
-          if (nhap == "Y") {
-               moneyAcc.showHistory();
-          }
      }
 
      public static void ChuyenTien() {
@@ -303,7 +303,7 @@ public class Bank {
                moneyAcc.setMoney(moneyAcc.getMoney() - money);
 
                System.out.println("Chuyen tien thanh cong.");
-               System.err.println(moneyAcc.toString());
+               System.err.println("So du con lai: "+moneyAcc.getMoney());
           }
      }
 

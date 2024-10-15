@@ -5,7 +5,9 @@ public class AccountMoney {
      private double money;
      private String name;
      private String time;
-     private List<String> history; // Lưu trữ lịch sử giao dịch trong chương trình
+    
+
+     private List<String> history; //  lu tru  lich su  giao dich
      public AccountMoney(){};
      public AccountMoney( double money,String name, String time) {
           this.name = name;
@@ -18,38 +20,38 @@ public class AccountMoney {
           this.name=name;
           this.money = money;
      }
-
-     public double getMoney() {
+     public AccountMoney(String name, double initialMoney) {
+          this.name = name;
+          this.money = initialMoney;
+          this.history = new ArrayList<>();
+          addHistory("Account created with initial balance: " + initialMoney);
+      }
+  
+      public double getMoney() {
           return money;
-     }
-
-     public String getName() {
+      }
+  
+      public String getName() {
           return name;
-     }
-
-     public void setMoney(double money) {
+      }
+  
+      public void setMoney(double money) {
           this.money = money;
-     }
-     
+      }
      public String getTime() {
           return time;
      }
-
      public void setTime(String time) {
           this.time = time;
      }
-     // Thêm giao dịch vào lịch sử
-     public void addHistory(String action) {
-          this.history.add(action);
-     }
-     public void setHistory(String action) {
-          this.history.add(action);
-     }
-
-     public void showHistory() {
-          System.out.println("\nTransaction History for " + name + ":");
-          for (String record : history) {
-               System.out.println("\t - "+record);
+      public void addHistory(String action) {
+          history.add(action);
+      }
+  
+      public void showHistory() {
+          System.out.println("Transaction History for " + name + ":");
+          for (String h : history) {
+              System.out.println(h);
           }
-     }
+      }
 }
