@@ -1,0 +1,6 @@
+src
+│
+├── App.java               // Chứa phương thức login
+├── AccountBank.java        // Class AccountBank nằm ngoài gói Menu
+└── Menu
+    └── MenuBank.java       // Gói Menu chứa MenuBank

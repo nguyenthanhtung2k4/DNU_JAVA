@@ -55,7 +55,7 @@
 
 17. Liên hệ hỗ trợ khách hàng (Customer Support Contact)
 - **Nhiệm vụ**: Hiển thị thông tin liên hệ với hỗ trợ khách hàng và cho phép gửi yêu cầu hỗ trợ thông qua terminal nếu người dùng gặp vấn đề cần giúp đỡ.
-
+18. Out Bank:
 
 
 

@@ -8,6 +8,10 @@
           \\ :  \
           \f : đầy trang
           \uxxxx : ký tự  unicode
+
+               System.out.print("\033[H\033[2J");
+               System.out.flush();
+          ==>  Clear terminal( Sử dụng ký tự ANSI)
 ////////////////////////////////////// Gợi ý //////////////////
           - Mỗi lần viết code xong xuống dòng phải có ;
           - Khái báo thư viẹn : import java.{tên_thư_viện}
