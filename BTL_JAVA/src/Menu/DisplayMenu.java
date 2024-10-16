@@ -1,5 +1,6 @@
-import Menu.*;
+package Menu;
 
+// import Menu.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -30,7 +31,7 @@ public class DisplayMenu {
      public static Scanner scanner = new Scanner(System.in);
      public static Time Date = new Time();
      public DisplayMenu(AccountBank Acc) {
-          moneyAcc = new AccountMoney(Acc.getMoney(), Acc.getName(), Date.getDate());
+          moneyAcc = new AccountMoney(Acc.getName(),Acc.getMoney() ,Date.getDate());
           Acc.Clear();
           System.out.println("\tWelcome to " + Acc.getName() + " Banking");
           int choice;
@@ -71,15 +72,22 @@ public class DisplayMenu {
                                    "\n Now " + Date.getDate() + "\nSo du stk: " + rut.RutTien(moneyAcc, rutTien));
                          break;
                     case 5:
-                         // System.out.println("\n\tTao the tin dung\n");
-                         // System.out.println("Gioi han muc the: ");
-                         // double limit = scanner.nextDouble();
-                        
-                         CreditCard card = new CreditCard("tung", 1000, 200);
-                         card.showHistory();
-                         // CreditCard card = new CreditCard(Acc.getName(), Acc.getMoney(), Date.getDate(), 100);
-                         // card.checkCreditLimit();
-                    
+                         Acc.Clear();
+                         int dem=0; 
+                         double limit=0;
+                       
+                         if (dem ==0){
+                              dem+=1;
+                              System.out.println("Nhap gioi han the: ");
+                              System.out.println("Create Card:") ;
+                              limit = scanner.nextDouble();
+                              System.out.println("===================\n");
+                         }
+                         System.out.println("The tin dung");
+                         System.out.println("Name:"+Acc.getName());
+                         System.out.println("Hien co: "+Acc.getMoney()+" $");
+                         CreditCard card= new CreditCard(Acc.getName(),Acc.getMoney(), limit);
+                         card.displayCard(moneyAcc);
                          break;
                     case 6:
                          System.out.println("\n\tXem lai lich su giao dich");
@@ -107,9 +115,9 @@ public class DisplayMenu {
      }
 
      public static void Thongtin(AccountBank Acc) {
-          System.out.println("\tNgay dang nhap: " + Date.getDate());
+          System.out.println("\tToday: " + Date.getDate());
           System.out.println("\nTen: " + Acc.getName());
-          System.out.println("So tien Hien Co: " + moneyAcc.getMoney());
+          System.out.println("So tien: " + moneyAcc.getMoney());
           System.out.println("Ngay sinh: " + Acc.getYear());
           System.out.println("Email: " + Acc.getEmai());
           System.out.println("Gioi tinh: " + Acc.getSex());

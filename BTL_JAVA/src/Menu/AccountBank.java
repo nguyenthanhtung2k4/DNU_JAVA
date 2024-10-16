@@ -1,3 +1,4 @@
+package Menu;
 
 public class AccountBank {
      private String name, emai, sex, password, adrees;
@@ -7,11 +8,12 @@ public class AccountBank {
      public AccountBank() {
      };
 
-     public AccountBank(String name, int year, String email, String sex, String adrees, int phone, String password,
-               double money) {
+     public AccountBank(String name, int year, String email, String sex, String adrees, 
+          int phone, String password,double money) {
           this.name = name;
           this.year = year;
           this.emai = email;
+          this.sex = sex;
           this.password = password;
           this.money = money;
           this.adrees = adrees;
