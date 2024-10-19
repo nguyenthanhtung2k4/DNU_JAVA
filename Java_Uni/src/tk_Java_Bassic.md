@@ -258,31 +258,6 @@ Các phương thức bên dưới:
 ![Vd: sử dụng Set ](./tk_Storage_Set.java)
 ![Vd: sử dụng Map ](./tk_Storage_Map.java)
 
-
-///////////////////////////////////////// Sử lý ngoại lệ  (try -  catch )//////////////////////
-          try :  Nhập trường hợp ngoại lệ
-          catch: Trường hợp sử lý ngoại lệ
-#               - Các trường hợp ngoại lệ hay gặp:
-                         InputMismatchException: Bắt lỗi khi người dùng nhập vào không phải là số nguyên.
-                         FileNotFoundException : (IOException)Xảy ra khi có lỗi liên quan đến nhập xuất (ví dụ: file không tồn tại).
-                         NullPointerException: Xảy ra khi bạn cố gắng truy cập một đối tượng null.
-                         ArrayIndexOutOfBoundsException: Xảy ra khi bạn truy cập một phần tử không tồn tại trong mảng.
-                         ArithmeticException: Xảy ra khi có một phép toán số học không hợp lệ (ví dụ: chia cho 0).
-                         SQLException: Xảy ra khi có lỗi liên quan đến cơ sở dữ liệu.
-                         NumberFormatException: Xảy ra khi cố gắng chuyển đổi một chuỗi thành số nhưng không thành công.
-                         IllegalArgumentException: Xảy ra khi một phương thức nhận được một đối số không hợp lệ.
-
-``` java
-          try {
-               // Code trường hợp ngoại lệ
-          } catch (Exception e) {
-               // Xử lý lỗi chia cho 0
-          }
-```
-![Vd:Xử_lý_ngoại_lệ](./tk_try_catch_XuLyNgoaiLe.java)
-
-
-
 ///////////////////////////////////////// Claass (OPP OOP: Hướng đối tượng) //////////////////////
 
           - class <TênClass> {} : Để khai báo cho hướng đối tượng:
@@ -339,6 +314,160 @@ Các phương thức bên dưới:
 #          - package 
           
 #          - Tổng quát: 
+##             Cac kieu  trong quat:
+                    -  E : Các phần trong một collection
+                    -  K : KIểu khóa trong Map
+                    -  V : Kiểu giá trị trong Map
+                    -  T : Các kiể thông thường
+                    -  S, U: Các kiểu thông thường khác.
+
+##          - Collections Framework:
+                    - Set :  không cho  lập lại các kiểu dữ liệu giống nhau
+                    - List : Tập các đối tuognjw tuần tự kế tiếp nhau, có thể lặp.
+                    - Map: Tập các giá trị (key - value) và không cho phép khóa lặp lại
+               -  Cây cấu trúc giao diện Collection:
+                         |_Collection : Giao diện gốc cho tất cả các tập hợp
+                              |_Set : Tập hợp không trùng lặp
+                                   |__HashSet : Lưu trữ phần tử không trùng lặp, không duy trì thứ tự
+                                   |__SortedSet : Lưu trữ phần tử không trùng lặp, tự động sắp xếp
+                                        |___TreeSet : Sắp xếp phần tử theo thứ tự tự nhiên hoặc Comparator
+
+                              |_List : Tập hợp có thể trùng lặp, duy trì thứ tự chèn
+                                   |__ArrayList : Truy cập phần tử nhanh, duy trì thứ tự chèn
+                                   |__Vector : Tương tự ArrayList nhưng thread-safe
+                                   |__LinkedList : Chèn/xóa nhanh, duy trì thứ tự chèn
+
+                              |_Map : Tập hợp các cặp khóa-giá trị
+                                   |__HashMap : Lưu trữ cặp khóa-giá trị, không duy trì thứ tự
+                                   |__Hashtable : Tương tự HashMap nhưng thread-safe
+                                   |__SortedMap : Lưu trữ cặp khóa-giá trị, tự động sắp xếp
+                                        |___TreeMap : Sắp xếp cặp khóa-giá trị theo thứ tự tự nhiên hoặc Comparator
+
+
+
+
+
+##          - Collections Thuộc tính (interface) :
+               |_ Collection
+                    |__ size() : Trả về số phần tử trong collection (int)
+                    |__ isEmpty() : Kiểm tra xem collection có rỗng không (boolean)
+                    |__ contains(Object o) : Kiểm tra xem collection có chứa phần tử cụ thể không (boolean)
+                    |__ iterator() : Trả về một iterator để lặp qua các phần tử trong collection
+                    |__ toArray() : Chuyển đổi collection thành một mảng
+                    |__ add(E e) : Thêm phần tử vào collection (boolean)
+                    |__ remove(Object o) : Xóa phần tử ra khỏi collection (boolean)
+                    |__ containsAll(Collection<?> c) : Kiểm tra xem collection có chứa tất cả các phần tử của collection khác không (boolean)
+                    |__ addAll(Collection<? extends E> c) : Thêm tất cả các phần tử từ collection khác vào collection hiện tại (boolean)
+                    |__ removeAll(Collection<?> c) : Xóa tất cả các phần tử của collection khác ra khỏi collection hiện tại (boolean)
+                    |__ retainAll(Collection<?> c) : Giữ lại các phần tử trong collection hiện tại mà cũng nằm trong collection khác (boolean)
+                    |__ clear() : Xóa tất cả các phần tử trong collection
+                    |__ equals(Object o) : So sánh collection với một đối tượng khác (boolean)
+                    |__ hashCode() : Trả về hash code của collection (int)
+
+                    |_ Set (Kế thừa từ Collection)
+                         |__ first() : Trả về phần tử đầu tiên trong tập hợp (E)
+                         |__ last() : Trả về phần tử cuối cùng trong tập hợp (E)
+                         |__ comparator() : Trả về comparator được sử dụng để sắp xếp, nếu có (Comparator<? super E>)
+                         |__ subSet(E fromElement, E toElement) : Trả về một tập hợp con từ fromElement đến toElement (SortedSet<E>)
+                         |__ headSet(E toElement) : Trả về một tập hợp con từ đầu đến toElement (SortedSet<E>)
+                         |__ tailSet(E fromElement) : Trả về một tập hợp con từ fromElement đến cuối (SortedSet<E>)
+
+                    |_ List (Kế thừa từ Collection)
+                         |__ get(int index) : Trả về phần tử tại vị trí chỉ định (E)
+                         |__ set(int index, E element) : Thay đổi phần tử tại vị trí chỉ định (E)
+                         |__ add(int index, E element) : Chèn phần tử vào vị trí chỉ định (void)
+                         |__ remove(int index) : Xóa phần tử tại vị trí chỉ định (E)
+                         |__ indexOf(Object o) : Trả về vị trí của phần tử đầu tiên xuất hiện trong list (int)
+                         |__ lastIndexOf(Object o) : Trả về vị trí của phần tử cuối cùng xuất hiện trong list (int)
+                         |__ listIterator() : Trả về một list iterator để lặp qua các phần tử trong list
+                         |__ listIterator(int index) : Trả về một list iterator bắt đầu từ vị trí chỉ định
+                         |__ subList(int fromIndex, int toIndex) : Trả về một phần của list từ vị trí fromIndex đến toIndex
+
+                    |_ Map (Không kế thừa từ Collection)
+                         |__ put(K key, V value) : Thêm hoặc thay thế một cặp khóa-giá trị trong map (V)
+                         |__ get(Object key) : Trả về giá trị tương ứng với khóa chỉ định (V)
+                         |__ remove(Object key) : Xóa cặp khóa-giá trị tương ứng với khóa chỉ định (V)
+                         |__ containsKey(Object key) : Kiểm tra xem map có chứa khóa chỉ định không (boolean)
+                         |__ containsValue(Object value) : Kiểm tra xem map có chứa giá trị chỉ định không (boolean)
+                         |__ keySet() : Trả về một tập hợp các khóa trong map (Set<K>)
+                         |__ values() : Trả về một collection các giá trị trong map (Collection<V>)
+                         |__ entrySet() : Trả về một tập hợp các entry (khóa-giá trị) trong map (Set<Map.Entry<K, V>>)
+
+[Vd:Sử dụng Set](./tk_Class_OPP_TongQuat_Set.java)
+[Vd:Sử dụng List](./tk_Class_OPP_TongQuat_List.java)
+[Vd:Sử dụng Map](./tk_Class_OPP_Tongquat_Map.java)
+[Vd:Sử dụng List](./tk_Class_OPP_TongQuat_Collections.java)
+
+##          - Giao diện iterator và Comparator :
+###               - Interator :(Lặp) Duyệt toàn bộ nội dung của toàn bộ nội dung. Sắp xếp theo thứ tự.
+               - Các thuộc tính Iterator:
+                    |_ Iterator
+                         |__ hasNext() : Kiểm tra xem còn phần tử để duyệt tiếp không (boolean)
+                         |__ next() : Trả về phần tử tiếp theo (E)
+                         |__ remove() : Xóa phần tử cuối cùng được trả về (void)
+
+                         |_ ListIterator (con của Iterator)
+                              |__ hasNext() : Kiểm tra xem còn phần tử để duyệt tiếp không (boolean)
+                              |__ next() : Trả về phần tử tiếp theo (E)
+                              |__ hasPrevious() : Kiểm tra xem còn phần tử phía trước không (boolean)
+                              |__ previous() : Trả về phần tử trước đó (E)
+                              |__ nextIndex() : Chỉ số của phần tử tiếp theo (int)
+                              |__ previousIndex() : Chỉ số của phần tử trước đó (int)
+                              |__ set(E e) : Thay thế phần tử cuối cùng bằng phần tử chỉ định (void)
+                              |__ add(E e) : Chèn phần tử chỉ định vào list (void)
+
+[Vd:Sử dụng Iterator](./tk_Class_OPP_TongQuat_Iterator.java)
+
+###               - Comparator:(So sánh) CHO PHÉP bạn so sánh hai đối tượng trong tập hợp. PHẢI ĐỊNH NGHĨA PHƯƠNG THỨC 
+                    - Một Comparatoe  phải định nghiawx một phương thức compare() Lấy tham số Ọect  và trả về -1, 0  hoặc 1
+                    - KHÔNG CẦN THIẾT LẬP TẬP HỢP ĐÃ CÓ KHẢ NĂNG SO SÁNH TỰ NHIÊN(string ,  integer...)
+
+[Vd:Sử dụng Comparator](./tk_Class_OPP_TongQuat_Comparator.java)
+
+##          - Kí tự đại diện:
+               <?>: Đại diện cho bất kỳ kiểu dữ liệu nào.
+               <? extends T>: Đại diện cho bất kỳ kiểu dữ liệu nào là lớp con của T hoặc chính T.
+               <? super T>: Đại diện cho bất kỳ kiểu dữ liệu nào là lớp cha của T hoặc chính T.
+               T : thường là khi muốn xuất hiện ở một ví trí nào đó.
+
+[Vd:Sử lý ngoại lệ <?>](./tk_Class_OPP_KiTuDaiDien_1.java)
+[Vd:Sử lý ngoại lệ <? extends T>](./tk_Class_OPP_KiTuDaiDien_2.java)
+[Vd:Sử lý ngoại lệ <? supper T>](./tk_Class_OPP_KiTuDaiDien_3.java)
+z
+
+
+# Xử lý ngoại lệ:
+-    `try` :  Trường hợp ngoại lệ có thể xảy ra.
+-    `catch`: Sử lý ngoại lệ
+-    `finally`: Luôn thực hiện ngoại lệ dù có lỗi hay không.
+-    `thorow`:  Dùng để ném ra một ngoại lệ.
+-    `thorows`: Được khai báo trong chữ ký của phương thức để biểu thị rằng phương thức này có thể ném ra một ngoại lệ.
+- `Lấy thông tin ngoại lệ`:
+          + getMessage() : Lấy thông tin ngoại lệ.
+          + getString() : Mô tả ngắn gọn về ngoại lệ
+          + printStacjTrace() : In ra tất cả các thông tin liên quan đến ngoại lệ (tên ,  loại, vị trí )
+
+--> Try lồng try cũng có thể cho phép bạn lồng nhau.
+## Các trường hợp ngoại lệ hay gặp:
+-    **InputMismatchException**: Bắt lỗi khi người dùng nhập vào không phải là số nguyên.
+-    **FileNotFoundException** : (IOException)Xảy ra khi có lỗi liên quan đến nhập xuất (ví dụ: file không tồn tại).
+-    **NullPointerException**: Xảy ra khi bạn cố gắng truy cập một đối tượng null.
+-    **ArrayIndexOutOfBoundsException**: Xảy ra khi bạn truy cập một phần tử không tồn tại trong mảng.
+-    **ArithmeticException**: Xảy ra khi có một phép toán số học không hợp lệ (ví dụ: chia cho 0).
+-    **SQLException**: Xảy ra khi có lỗi liên quan đến cơ sở dữ liệu.
+-    **NumberFormatException**: Xảy ra khi cố gắng chuyển đổi một chuỗi thành số nhưng không thành công.
+-    **IllegalArgumentException**: Xảy ra khi một phương thức nhận được một đối số không hợp lệ.
+-    **ClassNotFoundException**: Xảy ra khi bạn cố gắng load một class mà không tồn tại.
+
+
+``` java
+          try {
+               // Code trường hợp ngoại lệ
+          } catch (Exception e) {
+               // Xử lý lỗi chia cho 0
+          }
+```
+![Vd:Xử_lý_ngoại_lệ](./tk_try_catch_XuLyNgoaiLe.java)
 
 
 ///////////////////////////////////////// JFame (Giao diện destop java) //////////////////////

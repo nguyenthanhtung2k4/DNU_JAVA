@@ -1,1 +1,6 @@
-Sua lai  code CreditCard + tham khoa Cac Src khac trong java.
+Create Account Cần  nhập mật khẩu trên 8 kí tự.
+
+Thêm các sử lý ngoại lệ vào nữa,  ngoài ra sử dụng thêm chức năng TongQuat trong java.
+
+Lm nốt chức năng Vay von khi  vay xog cần chuyển vào  tk gốc .
+Vay von gan luu vao  file de  thanh toan sau khi  khoan no |  file luu  ca card 

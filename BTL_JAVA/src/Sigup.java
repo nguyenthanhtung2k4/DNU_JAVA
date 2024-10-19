@@ -1,16 +1,18 @@
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Sigup {
      Scanner scanner = new Scanner(System.in);
+     public Sigup(){};
      public Sigup(String FileACC){
 
           String file, name, email, sex, address, pass1, pass2;
                double money;
-               int phone, year;
+               int phone, year,id;
                file=FileACC;
-
+               Random ran = new Random();
                System.out.println("Your username: ");
                name = scanner.nextLine();
                System.out.println("Your Year: ");
@@ -26,6 +28,7 @@ public class Sigup {
                System.out.println("Your Phone: ");
                phone = scanner.nextInt();
                scanner.nextLine();
+               id=ran.nextInt(1000)+100;
 
                do {
                     System.out.println("Password: ");
@@ -41,15 +44,15 @@ public class Sigup {
 
                System.out.println("Money");
                money = scanner.nextDouble();
-               WriteAccountBank(file, name, year, email, sex, address, phone, pass2, money);
+               WriteAccountBank(file, name, year, email, sex, address, phone, pass2, money,id);
      }
      //////////////////////////////
      public static void WriteAccountBank(String file,String name, int year, String email, String sex, String address, int phone,
-               String pass2, double money) {
+               String pass2, double money, int id) {
           try {
                FileWriter myWriter = new FileWriter(file, true);
                myWriter.write(name + "," + year + "," + email + "," + sex + "," + address + "," + phone + "," + pass2
-                         + "," + money + "\n");
+                         + "," + money +","+id+ "\n");
                myWriter.close();
           } catch (IOException e) {
                System.out.println("Error writing to file!");

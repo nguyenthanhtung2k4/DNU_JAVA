@@ -1,1 +1,8 @@
-chay thu xem chuc nang 5 no co chay on dinh khong (  nhat la viec sau khi tao limit thi vao lai no co bat  nhap lai limit khong.)
+Làm nốt phần lưu file khi id.Đang làm giở phần  SigUp.java ( id lưu vào file +  Random)
+Thêm các sử lý ngoại lệ vào nữa,  ngoài ra sử dụng thêm chức năng TongQuat trong java.
+Vay von gan luu vao  file de  thanh toan sau khi  khoan no |  file luu  ca card 
+Lm nốt chức năng Vay von khi  vay xog cần chuyển vào  tk gốc .
+
+
+Create Account Cần  nhập mật khẩu trên 8 kí tự.
+

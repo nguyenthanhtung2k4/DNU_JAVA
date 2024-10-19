@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,42 +12,62 @@ import Menu.AccountBank;
 public class Main {
     public static AccountBank AccBank;
     public static List<AccountBank> accounts = new ArrayList<>();
-    public static final String FileAcc = "accounts.csv";
+    private static final String FileAcc = "./Data/accounts.csv";
+    private static final String FileCard= "./Data/card.csv";
+    private static final String FileVayVon = "./Data/vayvon.csv";
     public static Scanner scanner;
 
     public static void main(String[] args) throws Exception {
-        int nhap;
         scanner= new Scanner(System.in);
+        CheckFile(FileAcc);
+        CheckFile(FileCard);
+        CheckFile(FileVayVon);
         System.out.print("\033[H\033[2J");
         System.out.flush();
-        do{
-
+        while (true) {
             ReadAccountBank();
-            System.out.println("Welcome to  Banking");
-            System.out.println("[1] Creat Acount Bank");
+            System.out.println("Welcome to Banking");
+            System.out.println("[1] Create Account Bank");
             System.out.println("[2] Login Bank");
-            System.out.println("[3] Exit Bank");
-            System.out.print("Chon menu: ");
-            nhap= scanner.nextInt();
-            switch (nhap){
+            System.out.println("[0] Exit Bank");
+            int choice;
+            try {
+                choice = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Vui Long nhap so !");
+                scanner.nextLine(); // Clear invalid input from buffer
+                continue;
+            }
+
+            switch (choice) {
+                case 0:
+                    accounts.clear();
+                    System.out.println("Exit Bank");
+                    return;
                 case 1:
                     new Sigup(FileAcc);
                     break;
                 case 2:
                     new Login(accounts);
                     break;
-                    
-                case 3:
-                    System.out.print("\033[H\033[2J");
-                    System.out.flush();
-                    accounts.clear();
-                    System.out.println("Exit Bank");
-                    break;
-
                 default:
                     System.out.println("Sai nhap. Vui long nhap lai");
             }
-        }while(nhap!=3);
+        }
+    }
+    
+    ///////////////////////////////////
+    public static void CheckFile(String fileData){
+        File file = new File(fileData);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                System.out.println("An error occurred while creating the file.");
+                e.printStackTrace();
+            }
+        }
+    
     }
     ///////////////////////////////////
     public static void ReadAccountBank() {

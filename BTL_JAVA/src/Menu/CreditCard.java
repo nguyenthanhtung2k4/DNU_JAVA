@@ -1,14 +1,22 @@
 package Menu;
+// import java.util.List;
 import java.util.Scanner;
 
 public class CreditCard extends AccountMoney {
         private double creditLimit;
         private double debt;
-
-
-        public CreditCard(String name, double initialMoney, double creditLimit) {
+       
+       
+        public CreditCard(String name, double initialMoney) {
             super( name,initialMoney);
-            this.creditLimit = creditLimit;
+                this.debt = 0;
+                this.creditLimit = 0;
+                // this.time = time;
+                addHistory("The Tin Dung: " + creditLimit+" |Now: " );
+            }
+        public CreditCard(String name, double initialMoney, double creditLimit) {
+        super( name,initialMoney);
+        this.creditLimit = creditLimit;
             this.debt = 0;
             // this.time = time;
             addHistory("The Tin Dung: " + creditLimit+" |Now: " );
@@ -22,7 +30,21 @@ public class CreditCard extends AccountMoney {
                 System.out.println("Invalid payment amount.");
             }
         }
-    
+        public double getCard(){
+            return creditLimit;
+        }
+        public void setCard(double limit){
+            this.creditLimit = limit;
+        }
+        public double getDebt(){
+            return debt;
+        }
+        public void getDebt(double debt){
+            this.debt = debt;
+        }
+        
+      
+
         public void useCard(double amount) {
             if (amount > 0 && amount <= creditLimit) {
                 debt += amount;
@@ -35,9 +57,15 @@ public class CreditCard extends AccountMoney {
         }
         Scanner   scanner = new Scanner(System.in);
 /////////////////////////////////////////////////////////////////////////////////////////////
-        public void displayCard(AccountMoney moneyAcc){
+        public double[] tung(){
+            double[] tung = new double[2];
+            tung[0]=getCard();
+            tung[1]=getDebt();
+            return tung;
+        }
+        public void menuCard(AccountMoney moneyAcc){
         int choice;
-        moneyAcc.Clear();
+
         do{
             System.out.println("[0] Thoat che do the tin dung");
             System.out.println("[1] Dung the tin dung");
@@ -47,13 +75,15 @@ public class CreditCard extends AccountMoney {
             choice = scanner.nextInt();
             switch(choice){
                 case 0:
+                    // card[0]=getCard();
+                    // card[1]=getDebt();
                     System.out.println("Thoat");
                     break;
                 case 1:
                     System.out.println("\n\tNhap so tien dung: ");
                     double amount = scanner.nextDouble();
                     useCard(amount);
-                    moneyAcc.addHistory("Dung Card| Tien: "+amount+"Total: "+debt);
+                    moneyAcc.addHistory("Dung Card| Tien: "+amount+"Total Debt: "+debt);
                     System.out.println("Tong so tien no: "+debt);
                     break;
                     case 2:
@@ -63,7 +93,7 @@ public class CreditCard extends AccountMoney {
                     moneyAcc.setMoney(tien-amount);
                     
                     payDebt(amount);
-                    moneyAcc.addHistory("Thanh toan Card| Tien: "+amount+"Total: "+debt);
+                    moneyAcc.addHistory("Thanh toan Card| Tien: "+amount+"Total Debt: "+debt);
                     System.out.println("Tong so tien du: "+moneyAcc.getMoney()+" Total Debt: "+debt);
                     break;
                 case 3:
@@ -74,4 +104,5 @@ public class CreditCard extends AccountMoney {
             }
         }while(choice!=0);
     }
+    
 }

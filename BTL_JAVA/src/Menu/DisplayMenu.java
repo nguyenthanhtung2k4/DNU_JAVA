@@ -26,18 +26,22 @@ class Time {
           return date;
      }
 }
-public class DisplayMenu {
+
+public class DisplayMenu{
      public static AccountMoney moneyAcc;
      public static Scanner scanner = new Scanner(System.in);
      public static Time Date = new Time();
+     // @SuppressWarnings("unused")
      public DisplayMenu(AccountBank Acc) {
+          CreditCard card = null; //  Case 5;
+          VayVon VayVon= null; // Case7
           moneyAcc = new AccountMoney(Acc.getName(),Acc.getMoney() ,Date.getDate());
           Acc.Clear();
-          System.out.println("\tWelcome to " + Acc.getName() + " Banking");
+          System.out.println("\tWelcome " + Acc.getName() + " to Banking");
           int choice;
           do {
 
-               System.out.println("\n---------- Optin Menu ----------\n");
+               System.out.println("\n---------- Option Menu ----------\n");
                AllMenu();
                System.out.print("Chon chuc nang (1-6): ");
                // int choice=Menu.getInt();
@@ -61,8 +65,10 @@ public class DisplayMenu {
                          double tinNap = scanner.nextDouble();
                          // nap.NapTien(200);
                          System.out.println(
-                                   "\n Now " + Date.getDate() + "\nSo du stk: " + nap.NapTien(moneyAcc, tinNap));
-                         break;
+                                   "\n Now " + Date.getDate() + "\nSo du stk: " 
+                                   + nap.NapTien(moneyAcc, tinNap));
+                                   moneyAcc.addHistory("NapTien |So tien nap: "+tinNap+"$ | Now "+Date.getDate());
+                              break;
                     case 4:
                          NapRut rut = new NapRut();
                          System.out.println("Rut tien:");
@@ -72,28 +78,46 @@ public class DisplayMenu {
                                    "\n Now " + Date.getDate() + "\nSo du stk: " + rut.RutTien(moneyAcc, rutTien));
                          break;
                     case 5:
-                         Acc.Clear();
-                         int dem=0; 
-                         double limit=0;
-                       
-                         if (dem ==0){
-                              dem+=1;
-                              System.out.println("Nhap gioi han the: ");
-                              System.out.println("Create Card:") ;
-                              limit = scanner.nextDouble();
-                              System.out.println("===================\n");
+                         if (card == null) {
+                              System.out.println("Nhap credit limit cho the: ");
+                              double limit = scanner.nextDouble();
+                              card = new CreditCard(moneyAcc.getName(), moneyAcc.getMoney(), limit);
+                              System.out.println("The da duoc tao voi limit: " + limit);
+                              card.addHistory("Create Card | Now: "+Date.getDate());
+                              card.menuCard(moneyAcc);
+                         } else {
+                              System.out.println("Su dung the da ton tai");
+                              card.menuCard(moneyAcc);
                          }
-                         System.out.println("The tin dung");
-                         System.out.println("Name:"+Acc.getName());
-                         System.out.println("Hien co: "+Acc.getMoney()+" $");
-                         CreditCard card= new CreditCard(Acc.getName(),Acc.getMoney(), limit);
-                         card.displayCard(moneyAcc);
                          break;
                     case 6:
                          System.out.println("\n\tXem lai lich su giao dich");
                          moneyAcc.showHistory();
                          break;
+                    case 7:
+                         VayVon= new VayVon(moneyAcc.getName(), moneyAcc.getMoney());
+                         VayVon.displayVayVon(moneyAcc, Date.getDate());
+                         // System.out.println("Vay tjnunfgdg la: "+VayVon.getVay());
+                         // if (Vay==null){
+                         //      Vay = new VayVon(moneyAcc.getName(), moneyAcc.getMoney());
+                         //      // System.out.println(" Ban
+                         //      System.out.println("Nhap so tien muon vay: ");
+                         //      double soTien = scanner.nextDouble();
+                         //      System.out.println("Nhap thoi gian vay (thang): ");
+                         //      int han = scanner.nextInt();
+                         //      System.out.println("Nhap so lai (vd: 10 ~ 10% ): ");
+                         //      double lai = scanner.nextInt();
+                         //      lai=lai/100;
+                         //      Vay = new VayVon(moneyAcc.getName(), moneyAcc.getMoney(), soTien,lai,han);
+                         //      System.out.println("\n\nVay da duoc tao voi so tien: " + soTien);
+                         //      System.out.println("Vay da duoc tao voi thoi gian: " + han + " thang");
+                         //      Vay.addHistory("Create Loan | So tien Vay: "+soTien+" Lai "+lai+" Han: "+han+"|Now: "+Date.getDate());
+                         // }
+                         // else{
 
+                         // }
+                         break;
+                       
                     default:
                          System.out.println("Vui long chon lai chuc nang.");
                          break;
@@ -139,7 +163,7 @@ public class DisplayMenu {
 
                System.out.println("Chuyen tien thanh cong.");
                System.err.println("So du con lai: "+moneyAcc.getMoney());
-               moneyAcc.addHistory("GiaoDich |\nNow "+Date.getDate()+"Chuyen tien "+money+" --> "+stk);
+               moneyAcc.addHistory("GiaoDich |Chuyen tien "+money+"$ --> "+stk+"| Now "+Date.getDate());
           }
      }
      
