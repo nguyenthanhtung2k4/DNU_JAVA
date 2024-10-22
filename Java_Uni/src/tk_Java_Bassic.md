@@ -320,6 +320,7 @@ Các phương thức bên dưới:
                     -  V : Kiểu giá trị trong Map
                     -  T : Các kiể thông thường
                     -  S, U: Các kiểu thông thường khác.
+                    -  Object : 
 
 ##          - Collections Framework:
                     - Set :  không cho  lập lại các kiểu dữ liệu giống nhau

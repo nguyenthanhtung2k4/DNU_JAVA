@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -25,7 +26,7 @@ public class Main {
         System.out.print("\033[H\033[2J");
         System.out.flush();
         while (true) {
-            ReadAccountBank();
+            FileAccounts();
             System.out.println("Welcome to Banking");
             System.out.println("[1] Create Account Bank");
             System.out.println("[2] Login Bank");
@@ -41,13 +42,15 @@ public class Main {
 
             switch (choice) {
                 case 0:
-                    accounts.clear();
+                    // accounts.clear();
                     System.out.println("Exit Bank");
                     return;
                 case 1:
+                    // accounts.clear();
                     new Sigup(FileAcc);
                     break;
                 case 2:
+                    // accounts.clear();
                     new Login(accounts);
                     break;
                 default:
@@ -70,30 +73,33 @@ public class Main {
     
     }
     ///////////////////////////////////
-    public static void ReadAccountBank() {
-          try {
-               Scanner myReader = new Scanner(new File(FileAcc));
-               while (myReader.hasNextLine()) {
-                    String line = myReader.nextLine();
-                    String[] data = line.split(",");
-                    if (data.length == 8) {
-                        String name = data[0];
-                        int year = Integer.parseInt(data[1]);
-                        String email = data[2];
-                        String sex = data[3];
-                        String address = data[4];
-                        int phone = Integer.parseInt(data[5]);
-                        String password = data[6];
-                        double money = Double.parseDouble(data[7]);
 
-                        AccountBank acc = new AccountBank(name, year, email, sex, address, phone, password, money);
-                        accounts.add(acc);
-                    }
-               }
-               myReader.close();
-          } catch (IOException e) {
-               System.out.println("An error occurred while reading the file.");
-               e.printStackTrace();
-          }
-     }
+    public static void FileAccounts() {
+        try {
+            File myObj = new File("./Data/accounts.csv");
+            Scanner myReader = new Scanner(myObj);
+            myReader.nextLine();
+            while (myReader.hasNextLine()) {
+                String line = myReader.nextLine();
+                String[] data = line.split(",");
+                String name = data[0];
+                int year = Integer.parseInt(data[1]);
+                String email = data[2];
+                String sex = data[3];
+                String address = data[4];
+                int cccd = Integer.parseInt(data[5]);
+                int phone = Integer.parseInt(data[6]);
+                String password = data[7];
+                double money = Double.parseDouble(data[8]);
+                int id = Integer.parseInt(data[9]);
+                // System.out.println("name : " + name + " id: " + id);
+                AccountBank acc = new AccountBank(name, year, email, sex, address, phone, cccd, password, money, id);
+                accounts.add(acc);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
 }

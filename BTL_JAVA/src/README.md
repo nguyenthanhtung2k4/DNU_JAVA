@@ -28,11 +28,7 @@
 
 
 
-// Xác định số tiền vay: Người dùng nhập số tiền muốn vay.
-// Xác định kỳ hạn và lãi suất: Ngân hàng cung cấp các mức kỳ hạn vay và lãi suất tương ứng.
-// Tính toán lãi suất và số tiền phải trả: Dựa trên số tiền vay, kỳ hạn và lãi suất, hệ thống sẽ tính toán tổng số tiền người dùng cần trả.
-// Quản lý khoản vay: Hệ thống lưu trữ thông tin về các khoản vay hiện tại của người dùng.
-// Thanh toán khoản vay: Người dùng có thể trả nợ theo định kỳ hoặc trả toàn bộ nợ trước thời hạn.
+
 
 
 

@@ -3,13 +3,16 @@ package Menu;
 public class AccountBank {
      private String name, emai, sex, password, adrees;
      private double money;
-     private int phone, year;
+     private int phone, year, id,cccd;
+     
 
+    
+     
      public AccountBank() {
      };
 
      public AccountBank(String name, int year, String email, String sex, String adrees, 
-          int phone, String password,double money) {
+          int phone,int cccd, String password,double money, int id) {
           this.name = name;
           this.year = year;
           this.emai = email;
@@ -18,6 +21,9 @@ public class AccountBank {
           this.money = money;
           this.adrees = adrees;
           this.phone = phone;
+          this.cccd = cccd;
+          this.id = id;
+               
      }
 
      public double getMoney() {
@@ -93,6 +99,20 @@ public class AccountBank {
 
      public void setSex(String sex) {
           this.sex = sex;
+     }
+     public int getId() {
+          return id;
+     }
+
+     public void setId(int id) {
+          this.id = id;
+     }
+     public int getCccd() {
+          return cccd;
+     }
+
+     public void setCccd(int cccd) {
+          this.cccd = cccd;
      }
 
      public void Clear() {

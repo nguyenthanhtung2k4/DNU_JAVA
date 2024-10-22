@@ -10,14 +10,13 @@ public class Sigup {
 
           String file, name, email, sex, address, pass1, pass2;
                double money;
-               int phone, year,id;
+               int phone, year,id,cccd;
                file=FileACC;
                Random ran = new Random();
                System.out.println("Your username: ");
                name = scanner.nextLine();
                System.out.println("Your Year: ");
                year = scanner.nextInt();
-               scanner.nextLine();
                scanner.nextLine();
                System.out.println("Email: ");
                email = scanner.nextLine();
@@ -27,6 +26,8 @@ public class Sigup {
                address = scanner.nextLine();
                System.out.println("Your Phone: ");
                phone = scanner.nextInt();
+               System.out.println("Your cccd: ");
+               cccd = scanner.nextInt();
                scanner.nextLine();
                id=ran.nextInt(1000)+100;
 
@@ -44,14 +45,15 @@ public class Sigup {
 
                System.out.println("Money");
                money = scanner.nextDouble();
-               WriteAccountBank(file, name, year, email, sex, address, phone, pass2, money,id);
+               WriteAccountBank(file, name, year, email, sex, address, phone,cccd, pass2, money,id);
      }
      //////////////////////////////
      public static void WriteAccountBank(String file,String name, int year, String email, String sex, String address, int phone,
-               String pass2, double money, int id) {
+               int cccd, String pass2, double money, int id) {
           try {
                FileWriter myWriter = new FileWriter(file, true);
-               myWriter.write(name + "," + year + "," + email + "," + sex + "," + address + "," + phone + "," + pass2
+               myWriter.write(name + "," + year + "," + email + "," + sex + "," + address + "," 
+                         + phone + ","+cccd+"," + pass2
                          + "," + money +","+id+ "\n");
                myWriter.close();
           } catch (IOException e) {

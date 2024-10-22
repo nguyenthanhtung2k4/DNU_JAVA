@@ -7,15 +7,22 @@ public class CreditCard extends AccountMoney {
         private double debt;
        
        
-        public CreditCard(String name, double initialMoney) {
-            super( name,initialMoney);
+        public CreditCard(String name, double initialMoney,int id) {
+            super( name,initialMoney,id);
                 this.debt = 0;
                 this.creditLimit = 0;
                 // this.time = time;
                 addHistory("The Tin Dung: " + creditLimit+" |Now: " );
             }
-        public CreditCard(String name, double initialMoney, double creditLimit) {
-        super( name,initialMoney);
+        public CreditCard(String name, double initialMoney, double creditLimit, double debt, int id) {
+        super( name,initialMoney,id);
+        this.creditLimit = creditLimit;
+            this.debt = debt;
+            // this.time = time;
+            addHistory("The Tin Dung: " + creditLimit+" |Now: " );
+        }
+        public CreditCard(String name, double initialMoney, double creditLimit, int id) {
+        super( name,initialMoney,id);
         this.creditLimit = creditLimit;
             this.debt = 0;
             // this.time = time;
@@ -57,13 +64,8 @@ public class CreditCard extends AccountMoney {
         }
         Scanner   scanner = new Scanner(System.in);
 /////////////////////////////////////////////////////////////////////////////////////////////
-        public double[] tung(){
-            double[] tung = new double[2];
-            tung[0]=getCard();
-            tung[1]=getDebt();
-            return tung;
-        }
-        public void menuCard(AccountMoney moneyAcc){
+
+        public void menuCard(AccountMoney moneyAcc, String file){
         int choice;
 
         do{
@@ -75,8 +77,11 @@ public class CreditCard extends AccountMoney {
             choice = scanner.nextInt();
             switch(choice){
                 case 0:
-                    // card[0]=getCard();
-                    // card[1]=getDebt();
+                    String fomat="id,name,limit,debt";
+                    String plance=(getId()+","+getName()+","+getCard()+","+getDebt());
+                    ModifyCSV.displayCSV(moneyAcc.getId(), file, fomat, plance);
+
+               
                     System.out.println("Thoat");
                     break;
                 case 1:
