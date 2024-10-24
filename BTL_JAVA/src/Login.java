@@ -8,7 +8,7 @@ public class Login {
      public static AccountBank AccBank;
      Scanner scanner = new Scanner(System.in);
      public Login(List<AccountBank> accounts){
-
+          System.out.println("\n\tLogin\n");
           System.out.println("Email: ");
           String email = scanner.nextLine();
           System.out.println("Password: ");
@@ -27,6 +27,7 @@ public class Login {
                System.out.println("Login Success");
                new DisplayMenu(AccBank);
           } else {
+               AccBank= new AccountBank();
                AccBank.Clear();
                System.out.println("Login Fail");
           }

@@ -3,3 +3,8 @@ Cần tối ưu hóa  lưu file ( Card Nó vẫn tự động tạo ra nhiều f
 
 Thêm các sử lý ngoại lệ vào nữa,  ngoài ra sử dụng thêm chức năng TongQuat trong java.
 
+
+
+Check lai  phần nhập và xem lại phần displayMenu trong java . 
+Sửa lại  tối ưu phần readfile CSV (  trong dòng 131 trở đi  cần check lại  phần đọc)
+Cần check lại  từng Case  .

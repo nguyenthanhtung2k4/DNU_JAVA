@@ -33,6 +33,7 @@ class Time {
 }
 
 public class DisplayMenu{
+     
      public static AccountMoney moneyAcc;
      public static Scanner scanner = new Scanner(System.in);
      public static Time Date = new Time();
@@ -40,35 +41,37 @@ public class DisplayMenu{
      public static List<String>  lines= new ArrayList<>();  // luu  mang  file vao trong nay 
      public static CreditCard card = null; //  Case 5;
      public static VayVon VayVon= null; // Case7
+     public static SaveMoney SaveMoney= null; // Case8
      // @SuppressWarnings("unused")
      @SuppressWarnings("static-access")
      public DisplayMenu(AccountBank Acc) {
           String fileCredit="./data/card.csv";
           String fileVayVon="./data/vayvon.csv";
+          String fileMoney="./data/savemoney.csv";
           moneyAcc = new AccountMoney(Acc.getName(),Acc.getMoney() ,Date.getDate(), Acc.getId());
           Acc.Clear();
-          System.out.println("\tWelcome " + Acc.getName() + " to Banking");
+          System.out.println("\n\tWelcome " + Acc.getName() + " to Banking");
           int choice;
           do {
-               readFileCard(fileCredit); // doc file  trong Case5
-               readFileVayVon(fileVayVon); // doc file  trong Case7
+               // readFileCard(fileCredit); // doc file  trong Case5
+               // readFileVayVon(fileVayVon); // doc file  trong Case7
+
+               card=class_ReadFile(fileCredit,moneyAcc.getId(), CreditCard.class);
+               VayVon=class_ReadFile(fileVayVon,moneyAcc.getId(), VayVon.class);
+               SaveMoney=class_ReadFile(fileMoney, moneyAcc.getId(),SaveMoney.class);
 
                System.out.println("\n---------- Option Menu ----------\n");
                AllMenu();
                System.out.print("Chon chuc nang (1-6): ");
                // int choice=Menu.getInt();
                // Scanner scanner= new Scanner(System.in);
-               choice = scanner.nextInt();
+               choice = new Input().nhap("Lua chon Menu: ", Integer.class);
 
                switch (choice) {
                     case 0:
-                         // if(card != null || VayVon != null){
-                         //      ModifyCSV CSV= new ModifyCSV();
-                         //      String fomat="id,name,limit,debt";
-                         //      String plance=(card.getId()+","+card.getName()+","+card.getCard()+","+card.getDebt());
-                         //      System.out.println(plance);
-                         //      CSV.displayCSV(moneyAcc.getId(), fileCredit, fomat, plance);
-                         // }
+                         Acc.Clear();
+                         //  truoc khi  ket thuc can luu lai  thong tin tai khoan cua nguoi dung vao  trong file
+                         
                          System.out.println("Out Bank");
                          break;
                     case 1:
@@ -76,9 +79,13 @@ public class DisplayMenu{
                          Thongtin(Acc);
                          break;
                     case 2:
+                         Acc.Clear();
+                         System.out.println("\n\tChuyen tien");
                          ChuyenTien();
                          break;
                     case 3:
+                         Acc.Clear();
+                         System.out.println("\n\t text_dien_vao");
                          NapRut nap = new NapRut();
                          System.out.println("Nap tien:");
                          double tinNap = scanner.nextDouble();
@@ -89,6 +96,8 @@ public class DisplayMenu{
                                    moneyAcc.addHistory("NapTien |So tien nap: "+tinNap+"$ | Now "+Date.getDate());
                               break;
                     case 4:
+                         Acc.Clear();
+                         System.out.println("\n\t text_dien_vao");
                          NapRut rut = new NapRut();
                          System.out.println("Rut tien:");
                          double rutTien = scanner.nextDouble();
@@ -97,6 +106,8 @@ public class DisplayMenu{
                                    "\n Now " + Date.getDate() + "\nSo du stk: " + rut.RutTien(moneyAcc, rutTien));
                          break;
                     case 5:
+                         Acc.Clear();
+                         System.out.println("\n\t text_dien_vao");
                          if (card == null) {
                               System.out.println("Nhap credit limit cho the: ");
                               double limit = scanner.nextDouble();
@@ -113,10 +124,14 @@ public class DisplayMenu{
                          }
                          break;
                     case 6:
+                         Acc.Clear();
+                         System.out.println("\n\t text_dien_vao");
                          System.out.println("\n\tXem lai lich su giao dich");
                          moneyAcc.showHistory();
                          break;
                     case 7:
+                         Acc.Clear();
+                         System.out.println("\n\t text_dien_vao");
                          if(VayVon==null){
                               VayVon= new VayVon(moneyAcc.getName(), moneyAcc.getMoney(),moneyAcc.getId());
                               VayVon.displayVayVon(moneyAcc, Date.getDate(),fileVayVon);
@@ -128,15 +143,30 @@ public class DisplayMenu{
                          }
                          break;
                     
-                    case 9: 
+                    case 8: 
+                         Acc.Clear();
+                         System.out.println("\n\t text_dien_vao");
                          // tiet kiem tien 
-                         
+                         if(SaveMoney==null){
+                              String fomat=(moneyAcc.getId()+","+moneyAcc.getName()+","+0.0+0+0+0);
+                              moneyAcc.writeFile(fileMoney, fomat);
+                              SaveMoney= new SaveMoney(moneyAcc.getName(),moneyAcc.getMoney(),moneyAcc.getId());
+                              SaveMoney.displaySaveMoney(moneyAcc,fileMoney);
+                         }else{SaveMoney.displaySaveMoney(moneyAcc, fileMoney);}
                          break;
-                    case 10: 
+                    case 9: 
+                         Acc.Clear();
+                         System.out.println("\n\t text_dien_vao");
+                         // chuyen doi  tien
+
                          break;
                     case 11: 
+                         Acc.Clear();
+                         System.out.println("\n\t text_dien_vao");
                          break;
                     case 12: 
+                         Acc.Clear();
+                         System.out.println("\n\t text_dien_vao");
                          break;
                     
 
@@ -158,7 +188,11 @@ public class DisplayMenu{
           System.out.println("6. Lich su Giao Dich");
           System.out.println("7. Vay von va tra no");
           System.out.println("8. Tiet kiem tien");
-
+          System.out.println("9. Quan ly bao hiem");
+          System.out.println("10. Chuyen doi ngoai le");
+          System.out.println("11.Quan ly thu huong");
+          System.out.println("12.Support ");
+          
      }
 
      public static void Thongtin(AccountBank Acc) {
@@ -174,12 +208,10 @@ public class DisplayMenu{
           System.out.println("So dien thoai: " + Acc.getPhone());
      }
 
+     @SuppressWarnings("static-access")
      public static void ChuyenTien() {
-          System.out.println("Stk: ");
-          int stk = scanner.nextInt();
-
-          System.out.println("So tien chuyen: ");
-          double money = scanner.nextDouble();
+          int stk =new Input().nhap("Stk: ",Integer.class);
+          double money =new Input().nhap("Nhap so tien chuyen: ",Double.class);
 
           if (money > moneyAcc.getMoney() && money < 0) {
                System.out.println("So tien khong  hop le !");
@@ -192,61 +224,99 @@ public class DisplayMenu{
           }
      }
 
-     public static void readFileCard(String path){
-         try {
-               Scanner myReader = new Scanner(new File(path));
+     // public static void readFileCard(String path){
+     //     try {
+     //           Scanner myReader = new Scanner(new File(path));
+     //           myReader.nextLine();
+     //           while (myReader.hasNextLine()) {
+     //                String line = myReader.nextLine();
+     //                String[] data = line.split(",");
+     //                if (data.length == 4){
+     //                     // String id, name,limit, debt;
+     //                     int id =Integer.parseInt(data[0]);
+     //                     String name =data[1];
+     //                     double limit =Double.parseDouble(data[2]);
+     //                     double debt = Double.parseDouble(data[3]);
+     //                     if(id== moneyAcc.getId()){
+     //                          card = new CreditCard(name,moneyAcc.getMoney(),limit,debt,id);
+     //                          // dataCard.add(card);    
+     //                     }
+     //                }
+     //           }
+     //           myReader.close();
+     //      } catch (IOException e) {
+     //           System.out.println("An error occurred while reading the file.");
+     //           e.printStackTrace();
+     //      }
+     // // return path;
+     // }
+     // public static void readFileVayVon(String path){
+     //     try {
+     //           Scanner myReader = new Scanner(new File(path));
+     //           myReader.nextLine();
+     //           while (myReader.hasNextLine()) {
+     //                String line = myReader.nextLine();
+     //                String[] data = line.split(",");
+     //                if (data.length == 6){
+     //                     // String id, name,limit, debt;
+     //                     int id =Integer.parseInt(data[0]);
+     //                     String name =data[1];
+     //                     double vay =Double.parseDouble(data[2]);
+     //                     double lai = Double.parseDouble(data[3]);
+     //                     int han = Integer.parseInt(data[4]);
+     //                     double tong = Double.parseDouble(data[5]);
+     //                     if(id== moneyAcc.getId()){
+     //                          VayVon = new VayVon(id,name,moneyAcc.getMoney(),
+     //                                              vay,lai,han,tong);
+     //                     }
+
+     //                }
+     //           }
+     //           myReader.close();
+     //      } catch (IOException e) {
+     //           System.out.println("An error occurred while reading the file.");
+     //           e.printStackTrace();
+     //      }
+     // // return path;
+     // }
+     //  tai su dung lai  code bang ki tu dai dien
+     public static Scanner myReader;
+     public static <T extends AccountMoney> T class_ReadFile(String path, int accountId, Class<T> clazz) {
+          try {
+               myReader = new Scanner(new File(path));
                myReader.nextLine();
                while (myReader.hasNextLine()) {
                     String line = myReader.nextLine();
                     String[] data = line.split(",");
-                    if (data.length == 4){
-                         // String id, name,limit, debt;
-                         int id =Integer.parseInt(data[0]);
-                         String name =data[1];
-                         double limit =Double.parseDouble(data[2]);
-                         double debt = Double.parseDouble(data[3]);
-                         if(id== moneyAcc.getId()){
-                              card = new CreditCard(name,moneyAcc.getMoney(),limit,debt,id);
-                              // dataCard.add(card);    
+                    if (data.length == 6 ||  data.length==4 ) {
+                         int id = Integer.parseInt(data[0]);
+                         String name = data[1];
+                         
+                         if (id == accountId) {
+                              if (clazz == VayVon.class) {
+                                   double vay = Double.parseDouble(data[2]);
+                                   double lai = Double.parseDouble(data[3]);
+                                   int han = Integer.parseInt(data[4]);
+                                   double tong = Double.parseDouble(data[5]);
+                                   return clazz.cast(new VayVon(id,name,moneyAcc.getMoney(), vay,lai,han,tong));
+                              } else if (clazz == SaveMoney.class) {
+                                   double savemoney = Double.parseDouble(data[2]);
+                                   double lai = Double.parseDouble(data[3]);
+                                   int han = Integer.parseInt(data[4]);
+                                   double tong = Double.parseDouble(data[5]);
+                                   return clazz.cast(new SaveMoney(name,moneyAcc.getMoney(),id,savemoney,lai,han,tong));
+                              }else if (clazz== CreditCard.class){
+                                   double limit = Double.parseDouble(data[2]);
+                                   double debt = Double.parseDouble(data[3]);
+                                   return clazz.cast(new CreditCard(name, moneyAcc.getMoney(), limit, debt, id));
+                              }
                          }
                     }
                }
-               myReader.close();
-          } catch (IOException e) {
-               System.out.println("An error occurred while reading the file.");
-               e.printStackTrace();
+          } catch (Exception e) {
+              e.printStackTrace();
           }
-     // return path;
-     }
-     public static void readFileVayVon(String path){
-         try {
-               Scanner myReader = new Scanner(new File(path));
-               myReader.nextLine();
-               while (myReader.hasNextLine()) {
-                    String line = myReader.nextLine();
-                    String[] data = line.split(",");
-                    if (data.length == 6){
-                         // String id, name,limit, debt;
-                         int id =Integer.parseInt(data[0]);
-                         String name =data[1];
-                         double vay =Double.parseDouble(data[2]);
-                         double lai = Double.parseDouble(data[3]);
-                         int han = Integer.parseInt(data[4]);
-                         double tong = Double.parseDouble(data[5]);
-                         if(id== moneyAcc.getId()){
-                              VayVon = new VayVon(id,name,moneyAcc.getMoney(),
-                                                  vay,lai,han,tong);
-                         }
-
-                    }
-               }
-               myReader.close();
-          } catch (IOException e) {
-               System.out.println("An error occurred while reading the file.");
-               e.printStackTrace();
-          }
-     // return path;
-     }
-
-     
+          return null;
+      }
+      
 }

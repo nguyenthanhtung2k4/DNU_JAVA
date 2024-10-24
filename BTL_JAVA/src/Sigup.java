@@ -2,10 +2,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
+import Menu.Input;
+
 
 public class Sigup {
      Scanner scanner = new Scanner(System.in);
      public Sigup(){};
+     @SuppressWarnings("static-access")
      public Sigup(String FileACC){
 
           String file, name, email, sex, address, pass1, pass2;
@@ -15,22 +18,16 @@ public class Sigup {
                Random ran = new Random();
                System.out.println("Your username: ");
                name = scanner.nextLine();
-               System.out.println("Your Year: ");
-               year = scanner.nextInt();
-               scanner.nextLine();
+               year = new Input().nhap("Nhap year:", Integer.class);
                System.out.println("Email: ");
                email = scanner.nextLine();
                System.out.println("Sex : \n\tBoy\n\tGirl");
                sex = scanner.nextLine();
                System.out.println("Your Address: ");
                address = scanner.nextLine();
-               System.out.println("Your Phone: ");
-               phone = scanner.nextInt();
-               System.out.println("Your cccd: ");
-               cccd = scanner.nextInt();
-               scanner.nextLine();
+               phone = new Input().nhap("Nhap Phone: ", Integer.class);
+               cccd = new Input().nhap("Nhap cccd: ", Integer.class);
                id=ran.nextInt(1000)+100;
-
                do {
                     System.out.println("Password: ");
                     pass1 = scanner.nextLine();
@@ -42,9 +39,7 @@ public class Sigup {
                          System.out.println("Password fail");
                     }
                } while (!pass1.equals(pass2));
-
-               System.out.println("Money");
-               money = scanner.nextDouble();
+               money = new Input().nhap("Money ", Double.class);
                WriteAccountBank(file, name, year, email, sex, address, phone,cccd, pass2, money,id);
      }
      //////////////////////////////

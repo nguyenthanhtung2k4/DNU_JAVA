@@ -122,8 +122,7 @@ public class VayVon extends AccountMoney {
                          String data = (getId() + "," + getName() + "," + getVay() + "," + getLai() + "," + getHan() + "," + getTong());
                          ModifyCSV.displayCSV(moneyAcc.getId(), file, format, data);
                          if(getTong()==0){
-                              
-                              
+                            status=false;  
                          }
                          System.out.println("thoat");
                          break;

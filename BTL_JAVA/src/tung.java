@@ -1,17 +1,11 @@
-import java.util.ArrayList;
+import Menu.Input;
 
-public class tung { 
-  public static void main(String[] args) { 
-    ArrayList<String> cars = new ArrayList<String>();
-    cars.add("Volvo");
-    cars.add("BMW");
-    cars.add("Ford");
-    cars.add("Mazda");
-    for (int  i=0;i<cars.size();i++){
-          if (cars.get(i).equals("Tung")) {
-               cars.set(0, "Opel");
-               System.out.println(cars);
-          }
-    }
-  } 
-}
+public class tung {
+     public static void main(String[] args) {
+         
+         int so =new Input().nhap("Thanhtung la tao: ", Integer.class);
+         System.out.println("So nguyen: " + so);
+         double d =new Input().nhap("Thanhtung la tao2: ", Double.class);
+         System.out.println("So nguyen: " + d);
+     }
+ }

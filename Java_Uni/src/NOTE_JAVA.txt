@@ -1,2 +1,11 @@
 tim hieu  them ve   package + Interface + Tong quat
+
+          Abstract class: Thường được sử dụng khi các lớp chia sẻ một logic cơ bản và cần có sự kế thừa nhiều thành phần chung, bao gồm cả thuộc tính và phương thức đã triển khai. Abstract class cung cấp một mức độ trừu tượng cao hơn, nhưng vẫn có logic cụ thể cho các lớp con.
+
+          Interface: Thường được sử dụng khi cần định nghĩa một hành vi chung cho các lớp không liên quan hoặc khi muốn một lớp có thể kế thừa nhiều hành vi. Interface cho phép các lớp không liên quan thực thi cùng một tập hành vi.
 xem slide Sử lý ngoại lệ trong java ( đặt biệt xem thêm  phần throws)
+
+tim hieu them  ve Constructor trong java  khá hữu ích trong việc tái sử dụng lại  code
+tim hieu them ve   cast (ép kiểu) là một quá trình chuyển đổi một đối tượng từ kiểu dữ liệu này sang kiểu dữ liệu khác. Điều này thường được sử dụng khi bạn muốn thao tác với các kiểu dữ liệu khác nhau trong một chương trình.
+          Vd: (ví dụ: Object, List<Object>, AccountBase)
+Tìm hiểu về  Iinput  output trong java!  Slide IO

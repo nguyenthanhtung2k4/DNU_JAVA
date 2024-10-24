@@ -470,6 +470,39 @@ z
 ```
 ![Vd:Xử_lý_ngoại_lệ](./tk_try_catch_XuLyNgoaiLe.java)
 
+# input  or output: (luư file i/o)
+-    **File()**:
+     -    **FileWrite()**: Dùng để ghi các kí tự
+-    **PrintWrite()**: In trực tiếp ra màn hình +  ghi file.
+     -    **read()**: Dùng để đọc với char
+     -    **write()**: Làm việc với char
+-    **buferedReader**: 
+     -    **buferedReader.close()**: 
+     -    **buferedReader.close()**: 
+-    **FileReader**: Dùng để đọc
+-    **FileOutputStream()**: 
+-    **FileInputStream()**: 
+     -    **DataInputStream()**: 
+     -    **DataOutpurStream()**: 
+     -    **ObjectInputStream()**: 
+     -    **ObjectOutputStream()**:
+          -    **writeObject()**:  
+     -    *Ưu nhược điểm của Object  và data*
+
+# Luồng trong java: 
+-    **Scanner()**: 
+---> Bên trên đã có rồi, tìm kiếm bên trên để có thể hiểu hơn về Scanner(nextLine(), hasNextLine() .....)
+
+
+## Các lớp xử lý io  trong java:
+               -java.lang.Object
+                         |_InputStream
+                                   |_
+                                   |_
+                                   |_
+## Lớp File:
+
+
 
 ///////////////////////////////////////// JFame (Giao diện destop java) //////////////////////
 # JFrame là gì?

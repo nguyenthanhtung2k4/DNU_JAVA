@@ -11,7 +11,7 @@ public class AccountMoney {
     private int id;
    
     private List<String> history= new ArrayList<>();
-
+    public AccountMoney(){};
     public AccountMoney(String name, double initialMoney,int id) {
         this.name = name;
         this.money = initialMoney;

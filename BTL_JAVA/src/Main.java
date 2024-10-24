@@ -5,24 +5,22 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-
 import Menu.AccountBank;
-
-
-
+import Menu.AccountMoney;
 public class Main {
-    public static AccountBank AccBank;
+    public static AccountMoney moneyAcc;
     public static List<AccountBank> accounts = new ArrayList<>();
     private static final String FileAcc = "./Data/accounts.csv";
     private static final String FileCard= "./Data/card.csv";
     private static final String FileVayVon = "./Data/vayvon.csv";
+    private static final String FileMoney = "./Data/savemoney.csv";
     public static Scanner scanner;
-
     public static void main(String[] args) throws Exception {
         scanner= new Scanner(System.in);
         CheckFile(FileAcc);
         CheckFile(FileCard);
         CheckFile(FileVayVon);
+        CheckFile(FileMoney);
         System.out.print("\033[H\033[2J");
         System.out.flush();
         while (true) {
@@ -39,18 +37,18 @@ public class Main {
                 scanner.nextLine(); // Clear invalid input from buffer
                 continue;
             }
-
+            moneyAcc= new AccountMoney();
             switch (choice) {
                 case 0:
-                    // accounts.clear();
+                    moneyAcc.Clear();
                     System.out.println("Exit Bank");
                     return;
                 case 1:
-                    // accounts.clear();
+                    moneyAcc.Clear();
                     new Sigup(FileAcc);
                     break;
                 case 2:
-                    // accounts.clear();
+                    moneyAcc.Clear();
                     new Login(accounts);
                     break;
                 default:
@@ -58,7 +56,6 @@ public class Main {
             }
         }
     }
-    
     ///////////////////////////////////
     public static void CheckFile(String fileData){
         File file = new File(fileData);
@@ -70,10 +67,8 @@ public class Main {
                 e.printStackTrace();
             }
         }
-    
     }
     ///////////////////////////////////
-
     public static void FileAccounts() {
         try {
             File myObj = new File("./Data/accounts.csv");
