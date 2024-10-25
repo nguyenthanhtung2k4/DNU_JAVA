@@ -5,15 +5,16 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+import Data.srcData;
 import Menu.AccountBank;
 import Menu.AccountMoney;
 public class Main {
     public static AccountMoney moneyAcc;
     public static List<AccountBank> accounts = new ArrayList<>();
-    private static final String FileAcc = "./Data/accounts.csv";
-    private static final String FileCard= "./Data/card.csv";
-    private static final String FileVayVon = "./Data/vayvon.csv";
-    private static final String FileMoney = "./Data/savemoney.csv";
+    private static final String FileAcc = new srcData().getAccounts() ;
+    private static final String FileCard= new srcData().getCard() ;
+    private static final String FileVayVon = new srcData().getVayvon() ;
+    private static final String FileMoney = new srcData().getSavemoney() ;
     public static Scanner scanner;
     public static void main(String[] args) throws Exception {
         scanner= new Scanner(System.in);
@@ -56,7 +57,7 @@ public class Main {
             }
         }
     }
-    ///////////////////////////////////
+    //////////////////////////////////////////////
     public static void CheckFile(String fileData){
         File file = new File(fileData);
         if (!file.exists()) {
@@ -68,10 +69,9 @@ public class Main {
             }
         }
     }
-    ///////////////////////////////////
     public static void FileAccounts() {
         try {
-            File myObj = new File("./Data/accounts.csv");
+            File myObj = new File(FileAcc);
             Scanner myReader = new Scanner(myObj);
             myReader.nextLine();
             while (myReader.hasNextLine()) {

@@ -32,10 +32,16 @@ public class ModifyCSV {
             for (int i = 0; i < lines.size(); i++) {
                 String line = lines.get(i);
                 String[] parts = line.split(",");
-
-                if (Integer.parseInt(parts[0]) == targetId) {
-                    lines.set(i,plance);
-                    break;
+                try{
+                    if (Integer.parseInt(parts[0]) == targetId) {
+                        lines.set(i,plance);
+                        break;
+                    }
+                }catch(Exception e){
+                    if (Integer.parseInt(parts[9]) == targetId) {
+                        lines.set(i,plance);
+                        break;
+                    }
                 }
                 // else{
                 //     System.out.println("Khong tim thay");

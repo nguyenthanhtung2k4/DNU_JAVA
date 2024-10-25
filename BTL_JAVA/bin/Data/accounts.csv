@@ -1,7 +1,2 @@
 name,year,email,sex,adrees,phone,cccd,pass,money,id
-1,1,1,1,1,1,1,1,1,1
-1,1,1,1,1,1,1,1,1,1
-thantung,34,t,t,t,234,4556,t,1000.0,123
-thanhtung,2004,tung,boy,ha nam,985332250,1234098765,tung,10000.0,1083
-tungthanh la tao,12,t1,boy,hnam,3435,45,d,53.0,295
-5,54,t5,te,ete,45,435,34,335.0,936
+t,2004,t,boy,ha nam,123,123,t,4000.0,123

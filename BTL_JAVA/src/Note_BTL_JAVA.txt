@@ -5,6 +5,5 @@ Thêm các sử lý ngoại lệ vào nữa,  ngoài ra sử dụng thêm chức
 
 
 
-Check lai  phần nhập và xem lại phần displayMenu trong java . 
-Sửa lại  tối ưu phần readfile CSV (  trong dòng 131 trở đi  cần check lại  phần đọc)
+Cần fix code đoạn  case 0  khi  lưu lai user vào file.
 Cần check lại  từng Case  .

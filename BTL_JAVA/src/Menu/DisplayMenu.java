@@ -1,15 +1,12 @@
 package Menu;
-
 import java.io.File;
-import java.io.IOException;
-// import Menu.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
+import Data.srcData;
 class Time {
      String date;
 
@@ -31,25 +28,22 @@ class Time {
           return date;
      }
 }
-
 public class DisplayMenu{
-     
      public static AccountMoney moneyAcc;
      public static Scanner scanner = new Scanner(System.in);
      public static Time Date = new Time();
-     // public static List<CreditCard> dataCard= new ArrayList<>(); //  case5;
      public static List<String>  lines= new ArrayList<>();  // luu  mang  file vao trong nay 
      public static CreditCard card = null; //  Case 5;
      public static VayVon VayVon= null; // Case7
      public static SaveMoney SaveMoney= null; // Case8
-     // @SuppressWarnings("unused")
      @SuppressWarnings("static-access")
-     public DisplayMenu(AccountBank Acc) {
-          String fileCredit="./data/card.csv";
-          String fileVayVon="./data/vayvon.csv";
-          String fileMoney="./data/savemoney.csv";
+     public DisplayMenu(AccountBank Acc){
+          String fileAcc=new srcData().getAccounts();
+          String fileCredit=new srcData().getCard() ;
+          String fileVayVon=new srcData().getVayvon() ;
+          String fileMoney=new srcData().getSavemoney() ;
           moneyAcc = new AccountMoney(Acc.getName(),Acc.getMoney() ,Date.getDate(), Acc.getId());
-          Acc.Clear();
+          moneyAcc.Clear();
           System.out.println("\n\tWelcome " + Acc.getName() + " to Banking");
           int choice;
           do {
@@ -69,9 +63,12 @@ public class DisplayMenu{
 
                switch (choice) {
                     case 0:
-                         Acc.Clear();
-                         //  truoc khi  ket thuc can luu lai  thong tin tai khoan cua nguoi dung vao  trong file
-                         
+                         moneyAcc.Clear();
+                         String fomat1="name,year,email,sex,adrees,phone,cccd,pass,money,id" ;
+                         String Data=(Acc.getName()+","+Acc.getYear()+","+Acc.getEmai()+","+Acc.getSex()
+                         +","+Acc.getAdrees()+","+Acc.getPhone()+","+Acc.getCccd()+","+Acc.getPassword()
+                         +","+moneyAcc.getMoney()+","+Acc.getId());
+                         ModifyCSV.displayCSV(Acc.getId(),fileAcc,fomat1, Data);
                          System.out.println("Out Bank");
                          break;
                     case 1:
@@ -223,63 +220,8 @@ public class DisplayMenu{
                moneyAcc.addHistory("GiaoDich |Chuyen tien "+money+"$ --> "+stk+"| Now "+Date.getDate());
           }
      }
-
-     // public static void readFileCard(String path){
-     //     try {
-     //           Scanner myReader = new Scanner(new File(path));
-     //           myReader.nextLine();
-     //           while (myReader.hasNextLine()) {
-     //                String line = myReader.nextLine();
-     //                String[] data = line.split(",");
-     //                if (data.length == 4){
-     //                     // String id, name,limit, debt;
-     //                     int id =Integer.parseInt(data[0]);
-     //                     String name =data[1];
-     //                     double limit =Double.parseDouble(data[2]);
-     //                     double debt = Double.parseDouble(data[3]);
-     //                     if(id== moneyAcc.getId()){
-     //                          card = new CreditCard(name,moneyAcc.getMoney(),limit,debt,id);
-     //                          // dataCard.add(card);    
-     //                     }
-     //                }
-     //           }
-     //           myReader.close();
-     //      } catch (IOException e) {
-     //           System.out.println("An error occurred while reading the file.");
-     //           e.printStackTrace();
-     //      }
-     // // return path;
-     // }
-     // public static void readFileVayVon(String path){
-     //     try {
-     //           Scanner myReader = new Scanner(new File(path));
-     //           myReader.nextLine();
-     //           while (myReader.hasNextLine()) {
-     //                String line = myReader.nextLine();
-     //                String[] data = line.split(",");
-     //                if (data.length == 6){
-     //                     // String id, name,limit, debt;
-     //                     int id =Integer.parseInt(data[0]);
-     //                     String name =data[1];
-     //                     double vay =Double.parseDouble(data[2]);
-     //                     double lai = Double.parseDouble(data[3]);
-     //                     int han = Integer.parseInt(data[4]);
-     //                     double tong = Double.parseDouble(data[5]);
-     //                     if(id== moneyAcc.getId()){
-     //                          VayVon = new VayVon(id,name,moneyAcc.getMoney(),
-     //                                              vay,lai,han,tong);
-     //                     }
-
-     //                }
-     //           }
-     //           myReader.close();
-     //      } catch (IOException e) {
-     //           System.out.println("An error occurred while reading the file.");
-     //           e.printStackTrace();
-     //      }
-     // // return path;
-     // }
-     //  tai su dung lai  code bang ki tu dai dien
+     //  tai su dung lai  code bang ki tu dai dien 
+     // Tai su dung code voi  class  ke thua lai  nhau
      public static Scanner myReader;
      public static <T extends AccountMoney> T class_ReadFile(String path, int accountId, Class<T> clazz) {
           try {
@@ -318,5 +260,4 @@ public class DisplayMenu{
           }
           return null;
       }
-      
 }
