@@ -1,8 +1,7 @@
+package Menu;
 
 import java.util.List;
 import java.util.Scanner;
-import Menu.AccountBank;
-import Menu.DisplayMenu;
 
 public class Login {
      public static AccountBank AccBank;
@@ -25,7 +24,7 @@ public class Login {
           if (isSet) {
                AccBank.Clear();
                System.out.println("Login Success");
-               new DisplayMenu(AccBank);
+               new DisplayMenu(AccBank,accounts);
           } else {
                AccBank= new AccountBank();
                AccBank.Clear();

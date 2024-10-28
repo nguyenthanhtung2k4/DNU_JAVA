@@ -11,10 +11,14 @@ public class Input {
                 System.out.print(text); 
                 if (type == Integer.class) {
                     nhap = scanner.nextInt();
+                    scanner.nextLine();
                 } else if (type == Double.class) {
                     nhap = scanner.nextDouble();
+                    scanner.nextLine();
                 } else if (type == String.class) {
-                    nhap = scanner.next(); 
+                    nhap = scanner.nextLine(); 
+                } else if (type == Long.class) {
+                    nhap = scanner.nextLine(); 
                 }
                 break; 
             } catch (InputMismatchException e) {
@@ -25,6 +29,3 @@ public class Input {
         return type.cast(nhap);
     }
 }
-
-
-

@@ -4,3 +4,5 @@ File Card:
      id,name,limit,debt
 File VayVon:
      id,name,vay,lai,tong
+File BaoHiem:
+     id,loaixe,bienso,phibaohiem,tienbaohiem,sobaohiem

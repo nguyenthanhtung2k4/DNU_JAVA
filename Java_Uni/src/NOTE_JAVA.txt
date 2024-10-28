@@ -9,3 +9,4 @@ tim hieu them  ve Constructor trong java  khá hữu ích trong việc tái sử
 tim hieu them ve   cast (ép kiểu) là một quá trình chuyển đổi một đối tượng từ kiểu dữ liệu này sang kiểu dữ liệu khác. Điều này thường được sử dụng khi bạn muốn thao tác với các kiểu dữ liệu khác nhau trong một chương trình.
           Vd: (ví dụ: Object, List<Object>, AccountBase)
 Tìm hiểu về  Iinput  output trong java!  Slide IO
+tìm hiểu về UML (unified modein g langgue ) Kiến thức sâu   rộng cần thời gian hk.

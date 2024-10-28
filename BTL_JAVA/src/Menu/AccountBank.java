@@ -5,12 +5,13 @@ public class AccountBank {
      private double money;
      private int phone, year, id,cccd;
      
-
-    
-     
      public AccountBank() {
      };
-
+     public AccountBank(int  id, String name,double money){
+          this.id = id;
+          this.name = name;
+          this.money = money;
+     }
      public AccountBank(String name, int year, String email, String sex, String adrees, 
           int phone,int cccd, String password,double money, int id) {
           this.name = name;
@@ -23,13 +24,10 @@ public class AccountBank {
           this.phone = phone;
           this.cccd = cccd;
           this.id = id;
-               
      }
-
      public double getMoney() {
           return money;
      }
-
      public void setMoney(double money) {
           if (money >= 0) {
                this.money = money;
@@ -37,19 +35,15 @@ public class AccountBank {
                System.out.println("Vui long nhap money >=0");
           }
      }
-
      public String getName() {
           return name;
      }
-
      public void setName(String name) {
           this.name = name;
      }
-
      public String getEmai() {
           return emai;
      }
-
      public void setEmai(String emai) {
           this.emai = emai;
      }
@@ -85,14 +79,6 @@ public class AccountBank {
      public void setPhone(int phone) {
           this.phone = phone;
      }
-
-     // arr mang java
-     public void ArrayBank() {
-          // Map<String , Object> map = new HashMap<>();
-          // map.add("name", AcgetName()
-
-     }
-
      public String getSex() {
           return sex;
      }
@@ -110,16 +96,13 @@ public class AccountBank {
      public int getCccd() {
           return cccd;
      }
-
      public void setCccd(int cccd) {
           this.cccd = cccd;
      }
-
      public void Clear() {
           System.out.print("\033[H\033[2J");
           System.out.flush();
      }
-
      @Override
      public String toString() {
           return "AccountBank \n\tname: " + name + "\n\temai: " + emai + "\n\tpassword: " + password + "\n\tmoney: "

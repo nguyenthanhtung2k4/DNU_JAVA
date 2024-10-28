@@ -9,6 +9,22 @@
           \f : đầy trang
           \uxxxx : ký tự  unicode
 
+          %s: Đại diện cho một chuỗi (String). 
+          %d: Đại diện cho một số nguyên (integer). Tương tự như %s, %d sẽ được thay thế bằng giá trị số nguyên tương ứng.
+          %a: Đây không phải là một định dạng chuẩn trong Java.%f (số thực)
+          %x (số nguyên thập lục phân)
+               ==> dung prinrf ()
+```java
+          String name = "John Doe",a="tung";
+          int age = 30,b=2004;
+          double salary = 5000.5;
+          System.out.printf("Tên: %s, Tuổi: %d, Lương: %.2f", name, age, salary);
+
+          System.out.printf("name%10sage%12d%n", a, b);
+          System.out.printf("name%-10sage %-12d", a, b);
+          System.out.printf("%-10s%-10s%-10s\n", "Loai", "Gia", "BoiThuong");
+
+``
                System.out.print("\033[H\033[2J");
                System.out.flush();
           ==>  Clear terminal( Sử dụng ký tự ANSI)
@@ -473,13 +489,19 @@ z
 # input  or output: (luư file i/o)
 -    **File()**:
      -    **FileWrite()**: Dùng để ghi các kí tự
+          -    **read()**: Dùng để đọc với char
+          -    **write()**: Làm việc với char
 -    **PrintWrite()**: In trực tiếp ra màn hình +  ghi file.
      -    **read()**: Dùng để đọc với char
      -    **write()**: Làm việc với char
 -    **buferedReader**: 
      -    **buferedReader.close()**: 
      -    **buferedReader.close()**: 
+     -    **write()**: Làm việc với char
+     -    **read()**: Dùng để đọc với char
 -    **FileReader**: Dùng để đọc
+     -    **write()**: Làm việc với char
+     -    **read()**: Dùng để đọc với char
 -    **FileOutputStream()**: 
 -    **FileInputStream()**: 
      -    **DataInputStream()**: 
@@ -502,6 +524,8 @@ z
                                    |_
 ## Lớp File:
 
+
+# UML (unified  Moedeing language):  Mô hình hóa.
 
 
 ///////////////////////////////////////// JFame (Giao diện destop java) //////////////////////

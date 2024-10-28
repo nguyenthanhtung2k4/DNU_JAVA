@@ -1,29 +1,28 @@
 package Menu;
+import java.awt.Desktop;
 import java.io.File;
+import java.net.URI;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
-
 import Data.srcData;
 class Time {
      String date;
-
      public Time() {
           LocalDateTime myDateObj = LocalDateTime.now();
           DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
           String formattedDate = myDateObj.format(myFormatObj);
           date = formattedDate;
      }
-
      public Time(String myDate) {
           LocalDateTime myDateObj = LocalDateTime.parse(myDate, DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
           DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
           String formattedDate = myDateObj.format(myFormatObj);
           date = formattedDate;
      }
-
      public String getDate() {
           return date;
      }
@@ -36,8 +35,9 @@ public class DisplayMenu{
      public static CreditCard card = null; //  Case 5;
      public static VayVon VayVon= null; // Case7
      public static SaveMoney SaveMoney= null; // Case8
+     public static Input input= new Input();
      @SuppressWarnings("static-access")
-     public DisplayMenu(AccountBank Acc){
+     public DisplayMenu(AccountBank Acc , List<AccountBank> arrSig){
           String fileAcc=new srcData().getAccounts();
           String fileCredit=new srcData().getCard() ;
           String fileVayVon=new srcData().getVayvon() ;
@@ -47,19 +47,15 @@ public class DisplayMenu{
           System.out.println("\n\tWelcome " + Acc.getName() + " to Banking");
           int choice;
           do {
-               // readFileCard(fileCredit); // doc file  trong Case5
-               // readFileVayVon(fileVayVon); // doc file  trong Case7
-
                card=class_ReadFile(fileCredit,moneyAcc.getId(), CreditCard.class);
                VayVon=class_ReadFile(fileVayVon,moneyAcc.getId(), VayVon.class);
                SaveMoney=class_ReadFile(fileMoney, moneyAcc.getId(),SaveMoney.class);
 
                System.out.println("\n---------- Option Menu ----------\n");
                AllMenu();
-               System.out.print("Chon chuc nang (1-6): ");
                // int choice=Menu.getInt();
                // Scanner scanner= new Scanner(System.in);
-               choice = new Input().nhap("Lua chon Menu: ", Integer.class);
+               choice = input.nhap("Lua chon Menu: ", Integer.class);
 
                switch (choice) {
                     case 0:
@@ -69,7 +65,8 @@ public class DisplayMenu{
                          +","+Acc.getAdrees()+","+Acc.getPhone()+","+Acc.getCccd()+","+Acc.getPassword()
                          +","+moneyAcc.getMoney()+","+Acc.getId());
                          ModifyCSV.displayCSV(Acc.getId(),fileAcc,fomat1, Data);
-                         System.out.println("Out Bank");
+                         arrSig.clear();//  xoa  data
+                         System.out.println("\n\n\tOut Bank\n");
                          break;
                     case 1:
                          Acc.Clear();
@@ -82,32 +79,30 @@ public class DisplayMenu{
                          break;
                     case 3:
                          Acc.Clear();
-                         System.out.println("\n\t text_dien_vao");
+                         System.out.println("\n\t Nap Tien");
                          NapRut nap = new NapRut();
-                         System.out.println("Nap tien:");
-                         double tinNap = scanner.nextDouble();
+                         double tinNap =input.nhap("So tien Nap: ",Double.class);
                          // nap.NapTien(200);
                          System.out.println(
                                    "\n Now " + Date.getDate() + "\nSo du stk: " 
                                    + nap.NapTien(moneyAcc, tinNap));
                                    moneyAcc.addHistory("NapTien |So tien nap: "+tinNap+"$ | Now "+Date.getDate());
-                              break;
+                         break;
                     case 4:
                          Acc.Clear();
-                         System.out.println("\n\t text_dien_vao");
+                         System.out.println("\n\t Rut Tien\n");
                          NapRut rut = new NapRut();
-                         System.out.println("Rut tien:");
-                         double rutTien = scanner.nextDouble();
+                         double rutTien = input.nhap("So tien Rut: ",Double.class);
                          // nap.NapTien(200);
                          System.out.println(
                                    "\n Now " + Date.getDate() + "\nSo du stk: " + rut.RutTien(moneyAcc, rutTien));
                          break;
                     case 5:
                          Acc.Clear();
-                         System.out.println("\n\t text_dien_vao");
+                         System.out.println("\n\t The tin dung\n");
                          if (card == null) {
                               System.out.println("Nhap credit limit cho the: ");
-                              double limit = scanner.nextDouble();
+                              double limit = input.nhap("Gioi han the tin dung: ",Double.class);
                               card = new CreditCard(moneyAcc.getName(), moneyAcc.getMoney(), limit,moneyAcc.getId());
                               System.out.println("The da duoc tao voi limit: " + limit);
                               card.addHistory("Create Card | Now: "+Date.getDate());
@@ -122,13 +117,12 @@ public class DisplayMenu{
                          break;
                     case 6:
                          Acc.Clear();
-                         System.out.println("\n\t text_dien_vao");
                          System.out.println("\n\tXem lai lich su giao dich");
                          moneyAcc.showHistory();
                          break;
                     case 7:
                          Acc.Clear();
-                         System.out.println("\n\t text_dien_vao");
+                         System.out.println("\n\t Vay von");
                          if(VayVon==null){
                               VayVon= new VayVon(moneyAcc.getName(), moneyAcc.getMoney(),moneyAcc.getId());
                               VayVon.displayVayVon(moneyAcc, Date.getDate(),fileVayVon);
@@ -139,11 +133,9 @@ public class DisplayMenu{
                               VayVon.setStatus(true);
                          }
                          break;
-                    
                     case 8: 
                          Acc.Clear();
-                         System.out.println("\n\t text_dien_vao");
-                         // tiet kiem tien 
+                         System.out.println("\n\t Tiet kiem tien");
                          if(SaveMoney==null){
                               String fomat=(moneyAcc.getId()+","+moneyAcc.getName()+","+0.0+0+0+0);
                               moneyAcc.writeFile(fileMoney, fomat);
@@ -153,20 +145,75 @@ public class DisplayMenu{
                          break;
                     case 9: 
                          Acc.Clear();
-                         System.out.println("\n\t text_dien_vao");
-                         // chuyen doi  tien
-
+                         System.out.println("\n\t Quan ly bao hiem");
+                         new BaoHiem().displayBaohiem(Acc, moneyAcc);
+                         break;
+                    case 10: 
+                         Acc.Clear();
+                         System.out.println("\n\t Chuyen doi ngoai le");
+                         NgoaiTe.displayNgoaiTe(moneyAcc);
                          break;
                     case 11: 
                          Acc.Clear();
-                         System.out.println("\n\t text_dien_vao");
+                         System.out.println("\n\t Bao cao tai chinh");
+                         moneyAcc.showHistory2();
                          break;
                     case 12: 
                          Acc.Clear();
-                         System.out.println("\n\t text_dien_vao");
+                         System.out.println("\n\t Bao mat tai khoan");
+                         System.out.println("Thong tin ca nhan");
+                         Thongtin(Acc);
+                         System.out.println("[Y/n] Chon Y doi mat khau");
+                         String mk=input.nhap("==> ",String.class);
+                         if(mk.equalsIgnoreCase("Y")){
+                              while (true) {
+                                        String newmk=input.nhap("Nhap mat khau moi: ",String.class);
+                                        String newmk2=input.nhap("Xac nhan mat khau: ",String.class);
+                                        if(newmk.equals(newmk2)){Acc.setPassword(newmk);break;}
+                                        else{ System.out.println("Mat khau khong khop\nVui long nhap lai!");}
+                              }
+                         }
+                         System.out.println("[Y/n] Chon Y doi email ");
+                         String email=input.nhap("==> ",String.class);
+                         if(email.equalsIgnoreCase("Y")){
+                              while (true) {
+                                        String emailNew=input.nhap("Nhap emai moi: ",String.class);
+                                        String emailNew2=input.nhap("Xac nhan emai: ",String.class);
+                                        if(emailNew.equals(emailNew2)){Acc.setEmai(emailNew);break;}
+                                        else{ System.out.println("emai khong khop\nVui long nhap lai!");}
+                              }
+                         }
                          break;
-                    
-
+                    case 13: 
+                         Acc.Clear();
+                         System.out.println("\n\t Mua Sam");
+                         int nhap;
+                         System.out.printf("%5s%10s%n","Chon","SanPham");
+                         System.out.printf("%5s%10s%n","1","DoAn");
+                         System.out.printf("%5s%10s%n","2","QuanAo");
+                         System.out.printf("%5s%10s%n","3","DienTu");
+                         nhap= input.nhap("Lua chon MuaSam: ",Integer.class);
+                         try {
+                              MuaSam(nhap);
+                         } catch (Exception e) {
+                              System.out.println("Lua chon khong hop le! ");
+                         }
+                         break;
+                    case 14: 
+                         Acc.Clear();
+                         String TK=input.nhap("Nhap TK ADMIN:  ", String.class);
+                         String MK=input.nhap("Nhap MK  ADMIN:  ", String.class);
+                         if(TK.equals("1") && MK.equals("1")){
+                              System.out.println("\n \tWelcome ADMIN Bank \n");
+                              Admin.displayAdmin(fileAcc, arrSig);
+                              System.out.println("\n\t Quan tri vien");
+                         }else{System.out.println("TK or MK khong dung :((");}
+                         break;
+                    case 15: 
+                         Acc.Clear();
+                         System.out.println("\n\t Support");
+                         Support.displaySupport(arrSig, fileAcc);
+                         break;
                     default:
                          System.out.println("Vui long chon lai chuc nang.");
                          break;
@@ -174,9 +221,9 @@ public class DisplayMenu{
           } while (choice != 0);
 
      }
-     
      //////////////////////////////////
      public static void AllMenu() {
+          System.out.println("0. Dang xuat");
           System.out.println("1. Thong tin");
           System.out.println("2. Chuyen tien");
           System.out.println("3. Nap tien");
@@ -185,13 +232,15 @@ public class DisplayMenu{
           System.out.println("6. Lich su Giao Dich");
           System.out.println("7. Vay von va tra no");
           System.out.println("8. Tiet kiem tien");
-          System.out.println("9. Quan ly bao hiem");
-          System.out.println("10. Chuyen doi ngoai le");
-          System.out.println("11.Quan ly thu huong");
-          System.out.println("12.Support ");
+          System.out.println("9. Quan ly bao hiem xe");
+          System.out.println("10.Chuyen doi ngoai te");
+          System.out.println("11.Bao cao tai chinh");
+          System.out.println("12.Bao mat tai khoan");
+          System.out.println("13.Mua sam");
+          System.out.println("14.Quan tri vien"); // neu con thoi gian
+          System.out.println("15.Support ");
           
      }
-
      public static void Thongtin(AccountBank Acc) {
           System.out.println("\tToday: " + Date.getDate());
           System.out.println("\nID: " + Acc.getId());
@@ -204,22 +253,144 @@ public class DisplayMenu{
           System.out.println("Dia chi: " + Acc.getAdrees());
           System.out.println("So dien thoai: " + Acc.getPhone());
      }
-
      @SuppressWarnings("static-access")
      public static void ChuyenTien() {
-          int stk =new Input().nhap("Stk: ",Integer.class);
-          double money =new Input().nhap("Nhap so tien chuyen: ",Double.class);
-
+          int stk =input.nhap("Stk: ",Integer.class);
+          double money =input.nhap("Nhap so tien chuyen: ",Double.class);
           if (money > moneyAcc.getMoney() && money < 0) {
                System.out.println("So tien khong  hop le !");
           } else {
                moneyAcc.setMoney(moneyAcc.getMoney() - money);
-
                System.out.println("Chuyen tien thanh cong.");
                System.err.println("So du con lai: "+moneyAcc.getMoney());
                moneyAcc.addHistory("GiaoDich |Chuyen tien "+money+"$ --> "+stk+"| Now "+Date.getDate());
           }
      }
+     @SuppressWarnings("static-access")
+     public static void menu13(){
+               int nhap;
+
+               System.out.println("\n\t Mua sam");
+               System.out.printf("%5s%10s%n","Chon","SanPham");
+               System.out.printf("%5s%10s%n","1","DoAn");
+               System.out.printf("%5s%10s%n","2","QuanAo");
+               System.out.printf("%5s%10s%n","3","DienTu");
+               nhap= input.nhap("Lua chon MuaSam: ",Integer.class);
+               MuaSam(nhap);
+         
+
+     }
+     /// oder
+     public static Map<Integer,String> oder=Map.of(
+          1,"https://shopeefood.vn/ha-noi/food",
+          2,"https://shopee.vn/search?keyword=quanao",
+          3,"https://www.thegioididong.com/"
+     );
+     public static void MuaSam(int nhap){
+          try {
+               // Kiem tra xem he  thong ton tai khong
+               if (Desktop.isDesktopSupported()) {
+                    Desktop desktop = Desktop.getDesktop();
+                    // Kiểm tra xem Desktop có hỗ trợ duyệt web không
+                    if (desktop.isSupported(Desktop.Action.BROWSE)) {
+                              String url=oder.get(nhap);
+                              URI uri = new URI(url); 
+                              desktop.browse(uri); // Mở trang web
+                    }
+               } else {
+                    System.out.println("Desktop  khong ho tro");
+               }
+          } catch (Exception e) {
+               System.out.println("Error " + e.getMessage());
+        }
+     }
+    
+     @SuppressWarnings("static-access")
+     public static void deleteADMIN(){
+          String file="./Data/accounts.csv";
+          String format="name,year,email,sex,adrees,phone,cccd,pass,money,id";  
+          int id = input.nhap("Nhap id", Integer.class);
+          String name = input.nhap("Nhap name", String.class);
+          int year = input.nhap("Nhap year", Integer.class);
+          String mai = input.nhap("Nhap email", String.class);
+          String sex = input.nhap("Nhap sex ", String.class);
+          String address = input.nhap("Nhap ads ", String.class);
+          int phone = input.nhap("Nhap phone ", Integer.class);
+          int cccd = input.nhap("Nhapcccd ", Integer.class);
+          String password = input.nhap("Nhap pas ", String.class);
+          int money = input.nhap("Nhap  money ", Integer.class);
+
+          String data=(name+","+year+","+mai+","+sex+","+address+","+phone+","+cccd+","+password+","+money+","+id);
+          ModifyCSV.displayCSV(id,file,format,data);
+     }
+     @SuppressWarnings("static-access")
+     public static void ADMIN(String fileAcc, List<AccountBank> arrSig){
+          int NhapADMIN;
+          do {
+               System.out.println("\n\t Quan Tri Vien");
+               System.out.println("0 Thoat");
+               System.out.println("1 Them tai khoan");
+               System.out.println("2 Sua thong tin tai khoan");
+               System.out.println("3 Xoa tai khoan");
+               System.out.println("4 Danh sach tai khoan");
+               NhapADMIN= input.nhap("Lua chon: ",Integer.class);
+               switch (NhapADMIN) {
+                    case 1:
+                         System.out.println("Them tai khoan");
+                         new Sigup(fileAcc,arrSig);
+                         break;
+                    case 2:
+                         System.out.println("Sua thong tin tai khoan");
+                         int idEdit = input.nhap(" ID: ", Integer.class);
+                         String format="name,year,email,sex,adrees,phone,cccd,pass,money,id";  
+
+                         for (AccountBank acc : arrSig) {
+                              if (acc.getId() == idEdit) {
+                                   String file="./Data/accounts.csv";
+                                   int id = input.nhap("Nhap id", Integer.class);
+                                   String name = input.nhap("Nhap name", String.class);
+                                   int year = input.nhap("Nhap year", Integer.class);
+                                   String mai = input.nhap("Nhap email", String.class);
+                                   String sex = input.nhap("Nhap sex ", String.class);
+                                   String address = input.nhap("Nhap ads ", String.class);
+                                   int phone = input.nhap("Nhap phone ", Integer.class);
+                                   int cccd = input.nhap("Nhapcccd ", Integer.class);
+                                   String password = input.nhap("Nhap pas ", String.class);
+                                   int money = input.nhap("Nhap  money ", Integer.class);
+
+                                   String data=(name+","+year+","+mai+","+sex+","+address+","+phone+","+cccd+","+password+","+money+","+id);
+                                   ModifyCSV.displayCSV(id,file,format,data);
+                                   break;
+                              }else{
+                                   System.out.println("Khong tim thay Id User ");
+                              }
+                         }
+                         break;
+                    case 3:
+                         System.out.println("Xoa tai khoan");
+                         format="name,year,email,sex,adrees,phone,cccd,pass,money,id";  
+                         idEdit = input.nhap(" ID: ", Integer.class);
+                         for (AccountBank tk : arrSig) {
+                              if (tk.getId() == idEdit) {
+                                   ModifyCSV.displayCSVDelete(idEdit,fileAcc,format);
+                              }else{
+                                   System.out.println("Khong tim thay Id User ");
+                              }
+                         }
+                         break;
+                    case 4:
+
+                         break;
+                    case 0:
+
+                         break;
+                    
+                    default:
+                         break;
+               }
+          }while(NhapADMIN!=0);
+     }
+
      //  tai su dung lai  code bang ki tu dai dien 
      // Tai su dung code voi  class  ke thua lai  nhau
      public static Scanner myReader;
@@ -259,5 +430,5 @@ public class DisplayMenu{
               e.printStackTrace();
           }
           return null;
-      }
+     }
 }

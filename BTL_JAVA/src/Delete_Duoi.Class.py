@@ -21,4 +21,5 @@ def delete_class_files(folder_path):
 if __name__ == "__main__":
 #   folder_path = input("Nhập đường dẫn đến thư mục: ")
   delete_class_files("D:\CODE\DNU_JAVA\BTL_JAVA\src\Menu")
+  delete_class_files("D:\CODE\DNU_JAVA\BTL_JAVA\Data")
   delete_class_files("D:\CODE\DNU_JAVA\BTL_JAVA\src")

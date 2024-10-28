@@ -1,5 +1,4 @@
 package Menu;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -55,11 +54,23 @@ public class AccountMoney {
     public void addHistory(String action) {
         history.add(action);
     }
-
+    private  static int  dem=0;
     public void showHistory() {
         System.out.println("History Bank" + name + ":");
         for (String h : history) {
+            dem++;
             System.out.println(h);
+        }
+    }
+    public void showHistory2(){
+        if (dem>10){
+            System.out.println("So luong thay doi: "+dem);
+            System.out.println("Tat ca cac giao dich:\n");
+            System.out.println("Giao dich nhieu\n");
+            showHistory();
+            System.out.println("Ben tren 10 giao dich dau tien");
+        }if(dem==0){
+            System.out.println("Bao cao tai chinh khong co du lieu");
         }
     }
     public void Clear(){

@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -8,6 +9,8 @@ import java.util.Scanner;
 import Data.srcData;
 import Menu.AccountBank;
 import Menu.AccountMoney;
+import Menu.Login;
+import Menu.Sigup;
 public class Main {
     public static AccountMoney moneyAcc;
     public static List<AccountBank> accounts = new ArrayList<>();
@@ -18,18 +21,20 @@ public class Main {
     public static Scanner scanner;
     public static void main(String[] args) throws Exception {
         scanner= new Scanner(System.in);
-        CheckFile(FileAcc);
-        CheckFile(FileCard);
-        CheckFile(FileVayVon);
-        CheckFile(FileMoney);
+        CheckFile(FileAcc,"name,year,email,sex,adrees,phone,cccd,pass,money,id");
+        CheckFile(FileCard,"id,name,limit,debt");
+        CheckFile(FileVayVon,"id,name,vay,lai,han,tong");
+        CheckFile(FileMoney,"id,name,saveMoney,lai,han,tongtien");
+        
         System.out.print("\033[H\033[2J");
         System.out.flush();
         while (true) {
             FileAccounts();
             System.out.println("Welcome to Banking");
+            System.out.println("[0] Exit Bank");
             System.out.println("[1] Create Account Bank");
             System.out.println("[2] Login Bank");
-            System.out.println("[0] Exit Bank");
+            System.out.println("[3] Support");
             int choice;
             try {
                 choice = scanner.nextInt();
@@ -42,11 +47,12 @@ public class Main {
             switch (choice) {
                 case 0:
                     moneyAcc.Clear();
+                    accounts.clear();
                     System.out.println("Exit Bank");
                     return;
                 case 1:
                     moneyAcc.Clear();
-                    new Sigup(FileAcc);
+                    new Sigup(FileAcc, accounts);
                     break;
                 case 2:
                     moneyAcc.Clear();
@@ -58,22 +64,27 @@ public class Main {
         }
     }
     //////////////////////////////////////////////
-    public static void CheckFile(String fileData){
+    public static void CheckFile(String fileData, String format) throws IOException{
         File file = new File(fileData);
-        if (!file.exists()) {
-            try {
+        try {
+            if (!file.exists()) { 
                 file.createNewFile();
-            } catch (IOException e) {
-                System.out.println("An error occurred while creating the file.");
-                e.printStackTrace();
+                try (FileWriter fileWriter = new FileWriter(file)) {
+                    fileWriter.write(format+"\n");
+                }
             }
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
         }
     }
+    
     public static void FileAccounts() {
-        try {
-            File myObj = new File(FileAcc);
-            Scanner myReader = new Scanner(myObj);
-            myReader.nextLine();
+        try(Scanner myReader = new Scanner(new File(FileAcc))){
+            try {
+                myReader.nextLine();
+            } catch (Exception e) {
+                System.out.println("Khong co tai khoan nao duoc dang ky");
+            }
             while (myReader.hasNextLine()) {
                 String line = myReader.nextLine();
                 String[] data = line.split(",");
@@ -93,8 +104,7 @@ public class Main {
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
+            System.out.println("File not found: " + e.getMessage());
         }
     }
 }

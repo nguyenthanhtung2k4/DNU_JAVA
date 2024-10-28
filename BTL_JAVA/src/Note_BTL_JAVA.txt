@@ -1,9 +1,2 @@
 Create Account Cần  nhập mật khẩu trên 8 kí tự.
 Cần tối ưu hóa  lưu file ( Card Nó vẫn tự động tạo ra nhiều file );
-
-Thêm các sử lý ngoại lệ vào nữa,  ngoài ra sử dụng thêm chức năng TongQuat trong java.
-
-
-
-Cần fix code đoạn  case 0  khi  lưu lai user vào file.
-Cần check lại  từng Case  .

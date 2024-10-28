@@ -10,10 +10,12 @@ Có các folder:
 
 Các class chính: ke thua  + da hinh  + truu tuong  (abstract)+ bao mat(private)
      Class: AccountBank
-     Class: AccountMoney
-          Class: Card
-          Class: savemoney
-          Class: vayVon
+          class BaoHiem ( trong class co su dung Map<>)
+          class: AccountMoney
+               Class: Card
+               Class: savemoney
+               Class: vayVon
+
 
 Sử dụng các kí tứ đại diện để có thể tái sử dụng lại code  classs
      Trong phần lưu file CSV, Read File( Nằm trong DisplayMenu)
