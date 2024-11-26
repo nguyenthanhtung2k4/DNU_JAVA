@@ -257,7 +257,7 @@ public class DisplayMenu{
      public static void ChuyenTien() {
           int stk =input.nhap("Stk: ",Integer.class);
           double money =input.nhap("Nhap so tien chuyen: ",Double.class);
-          if (money > moneyAcc.getMoney() && money < 0) {
+          if (money> moneyAcc.getMoney() || money < 0) {
                System.out.println("So tien khong  hop le !");
           } else {
                moneyAcc.setMoney(moneyAcc.getMoney() - money);

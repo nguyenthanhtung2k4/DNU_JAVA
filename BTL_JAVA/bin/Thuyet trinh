@@ -1,6 +1,3 @@
-main
-     diplayMenu
-          Các chức năngv
 
 
 Có các folder:
@@ -8,10 +5,21 @@ Có các folder:
      Menu
      File chính(main.java)
 
+
+main ( để chạy  chương trình.)
+sigup
+login
+     diplayMenu ( gồm nhiều file  khác)
+                    Các chức năng chinh
+     
+
+     
 Các class chính: ke thua  + da hinh  + truu tuong  (abstract)+ bao mat(private)
      Class: AccountBank
           class BaoHiem ( trong class co su dung Map<>)
           class: AccountMoney
+               Class: NapRut 
+               Class: Ngoai  te
                Class: Card
                Class: savemoney
                Class: vayVon
@@ -23,3 +31,5 @@ Sử dụng các kí tứ đại diện để có thể tái sử dụng lại c
 
 Lưu file:
      File VayVon,Card,SaveMoney,acconuts,
+     Class  Modify để sử lý  file 
+     Class  Read File  để đọc file. (kí tự  đại diện)
