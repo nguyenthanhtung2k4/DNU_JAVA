@@ -203,7 +203,7 @@ public class DisplayMenu{
                          Acc.Clear();
                          String TK=input.nhap("Nhap TK ADMIN:  ", String.class);
                          String MK=input.nhap("Nhap MK  ADMIN:  ", String.class);
-                         if(TK.equals("1") && MK.equals("1")){
+                         if(TK.equals("admin") && MK.equals("admin")){
                               System.out.println("\n \tWelcome ADMIN Bank \n");
                               Admin.displayAdmin(fileAcc, arrSig);
                               System.out.println("\n\t Quan tri vien");
@@ -304,93 +304,6 @@ public class DisplayMenu{
                System.out.println("Error " + e.getMessage());
         }
      }
-    
-     @SuppressWarnings("static-access")
-     public static void deleteADMIN(){
-          String file="./Data/accounts.csv";
-          String format="name,year,email,sex,adrees,phone,cccd,pass,money,id";  
-          int id = input.nhap("Nhap id", Integer.class);
-          String name = input.nhap("Nhap name", String.class);
-          int year = input.nhap("Nhap year", Integer.class);
-          String mai = input.nhap("Nhap email", String.class);
-          String sex = input.nhap("Nhap sex ", String.class);
-          String address = input.nhap("Nhap ads ", String.class);
-          int phone = input.nhap("Nhap phone ", Integer.class);
-          int cccd = input.nhap("Nhapcccd ", Integer.class);
-          String password = input.nhap("Nhap pas ", String.class);
-          int money = input.nhap("Nhap  money ", Integer.class);
-
-          String data=(name+","+year+","+mai+","+sex+","+address+","+phone+","+cccd+","+password+","+money+","+id);
-          ModifyCSV.displayCSV(id,file,format,data);
-     }
-     @SuppressWarnings("static-access")
-     public static void ADMIN(String fileAcc, List<AccountBank> arrSig){
-          int NhapADMIN;
-          do {
-               System.out.println("\n\t Quan Tri Vien");
-               System.out.println("0 Thoat");
-               System.out.println("1 Them tai khoan");
-               System.out.println("2 Sua thong tin tai khoan");
-               System.out.println("3 Xoa tai khoan");
-               System.out.println("4 Danh sach tai khoan");
-               NhapADMIN= input.nhap("Lua chon: ",Integer.class);
-               switch (NhapADMIN) {
-                    case 1:
-                         System.out.println("Them tai khoan");
-                         new Sigup(fileAcc,arrSig);
-                         break;
-                    case 2:
-                         System.out.println("Sua thong tin tai khoan");
-                         int idEdit = input.nhap(" ID: ", Integer.class);
-                         String format="name,year,email,sex,adrees,phone,cccd,pass,money,id";  
-
-                         for (AccountBank acc : arrSig) {
-                              if (acc.getId() == idEdit) {
-                                   String file="./Data/accounts.csv";
-                                   int id = input.nhap("Nhap id", Integer.class);
-                                   String name = input.nhap("Nhap name", String.class);
-                                   int year = input.nhap("Nhap year", Integer.class);
-                                   String mai = input.nhap("Nhap email", String.class);
-                                   String sex = input.nhap("Nhap sex ", String.class);
-                                   String address = input.nhap("Nhap ads ", String.class);
-                                   int phone = input.nhap("Nhap phone ", Integer.class);
-                                   int cccd = input.nhap("Nhapcccd ", Integer.class);
-                                   String password = input.nhap("Nhap pas ", String.class);
-                                   int money = input.nhap("Nhap  money ", Integer.class);
-
-                                   String data=(name+","+year+","+mai+","+sex+","+address+","+phone+","+cccd+","+password+","+money+","+id);
-                                   ModifyCSV.displayCSV(id,file,format,data);
-                                   break;
-                              }else{
-                                   System.out.println("Khong tim thay Id User ");
-                              }
-                         }
-                         break;
-                    case 3:
-                         System.out.println("Xoa tai khoan");
-                         format="name,year,email,sex,adrees,phone,cccd,pass,money,id";  
-                         idEdit = input.nhap(" ID: ", Integer.class);
-                         for (AccountBank tk : arrSig) {
-                              if (tk.getId() == idEdit) {
-                                   ModifyCSV.displayCSVDelete(idEdit,fileAcc,format);
-                              }else{
-                                   System.out.println("Khong tim thay Id User ");
-                              }
-                         }
-                         break;
-                    case 4:
-
-                         break;
-                    case 0:
-
-                         break;
-                    
-                    default:
-                         break;
-               }
-          }while(NhapADMIN!=0);
-     }
-
      //  tai su dung lai  code bang ki tu dai dien 
      // Tai su dung code voi  class  ke thua lai  nhau
      public static Scanner myReader;

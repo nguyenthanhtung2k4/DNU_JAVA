@@ -1,7 +1,5 @@
 package Menu;
-
 import java.util.Scanner;
-
 public class VayVon extends AccountMoney {
      private double vay, lai, tong;
      private boolean status = false; 
@@ -11,7 +9,6 @@ public class VayVon extends AccountMoney {
           super(name, money, id);
           this.name = name;
      }
-
      public VayVon(String name, double money, Double vay, double lai, int han) {
           super(name, money);
           this.vay = vay;
@@ -20,7 +17,6 @@ public class VayVon extends AccountMoney {
           this.name = name;
           this.status = true; 
      }
-
      public VayVon(int id, String name, double money, Double vay, double lai, int han, double tong) {
           super(name, money, id);
           this.vay = vay;
@@ -33,37 +29,27 @@ public class VayVon extends AccountMoney {
      public double getLai() {
           return lai;
      }
-
      public void setLai(double lai) {
           this.lai = lai;
      }
-
      public double getVay() {
           return vay;
      }
-
      public void setVay(double vay) {
           this.vay = vay;
      }
-     
-
      public int getHan() {
           return han;
      }
-
      public void setHan(int han) {
           this.han = han;
      }
-
      public double getTong() {
           return tong;
      }
-
      public void setTong(double tong) {
           this.tong = tong;
      }
-
-
      public void payVayVon(double money) {
           if (money <= tong && money >= 0) {
                tong -= money;
@@ -78,32 +64,24 @@ public class VayVon extends AccountMoney {
                System.out.println("Thanh toan khong hop  le.");
           }
      }
-
-
      public boolean isStatus() {
           return status;
      }
-
      public void setStatus(boolean status) {
           this.status = status;
      }
-
-
      public void setTong(double vay, double lai, double han) {
           this.tong = vay + ((vay * lai));
           this.status = true; 
      }
-
      public void TongVayVon() {
           System.out.println("Name: " + name);
           System.out.println("Tong so tien can tra: " + tong);
           System.out.println("\tSo tien vay: " + vay + "\n\tLai suat: " + (lai * 100) + "%\n\tKy han: " + han + " thang");
      }
-
      public void printVayVon() {
           System.out.println("Ton tien can tra: " + tong + "\nTien tra hang thang" + tong / han);
      }
-
      Scanner scanner = new Scanner(System.in);
 
      public void displayVayVon(AccountMoney moneyAcc, String time, String file) {
@@ -131,7 +109,7 @@ public class VayVon extends AccountMoney {
                          break;
                     case 2:
                          System.out.println("Thanh toan Vay\n");
-                         System.out.println("Nhap so tien vay: ");
+                         System.out.println("Nhap so tien thanh toan: ");
                          double pay = scanner.nextDouble();
                          if (pay > 0 && pay <= moneyAcc.getMoney()) {
                               payVayVon(pay);
@@ -176,6 +154,7 @@ public class VayVon extends AccountMoney {
                // String write = (getId() + "," + getName() + "," + getVay() + "," + getLai() + "," + getHan() + "," + getTong() + "\n");
                // AccountMoney.writeFile(path, write);
                setStatus(true); 
+               
           } else {
                System.out.println("Ban da co  khoan vay! ");
           }

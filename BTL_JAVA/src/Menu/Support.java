@@ -1,10 +1,9 @@
 package Menu;
 import java.util.List;
-
 public class Support {
      public static void displaySupport(List<AccountBank> accounts,  String fileAcc) {int S;
           do{
-               
+               System.out.println("\t Support");
                System.out.println("[1] Lay lai Mat khau");
                System.out.println("[2] Dang ky tai khoan moi  o dau?");
                System.out.println("[3] Ngan hang co cung cap bao mat khong");
@@ -55,7 +54,7 @@ public class Support {
                          System.out.println("Lua chon khong hop le!");
                          break;
                }
-          }while(true);
+          }while(S!=0);
      }
      
      //  menu

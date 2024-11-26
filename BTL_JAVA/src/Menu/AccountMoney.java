@@ -4,13 +4,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AccountMoney {
+public class AccountMoney extends AccountBank {
     private double money;
     private String name;
     private int id;
    
     private List<String> history= new ArrayList<>();
     public AccountMoney(){};
+    public AccountMoney(String name, int id) {
+        super(name,id);
+    }
     public AccountMoney(String name, double initialMoney,int id) {
         this.name = name;
         this.money = initialMoney;
@@ -68,9 +71,9 @@ public class AccountMoney {
             System.out.println("Tat ca cac giao dich:\n");
             System.out.println("Giao dich nhieu\n");
             showHistory();
-            System.out.println("Ben tren 10 giao dich dau tien");
+            System.out.println("Ben tren 10 giao dich noi bat");
         }if(dem==0){
-            System.out.println("Bao cao tai chinh khong co du lieu");
+            System.out.println("Bao cao tai chinh chua co du lieu");
         }
     }
     public void Clear(){

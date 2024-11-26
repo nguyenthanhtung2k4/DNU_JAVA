@@ -134,8 +134,8 @@ public class BaoHiem extends AccountBank {
                                         moneyAcc.setMoney(moneyAcc.getMoney()+BH.getTienboithuong());
                                         moneyAcc.addHistory("Boithuong | Ly do: "+lydo+" So tien BoiThuong: "+BH.getTienboithuong());
                                         statusBH=false;//   xoa bao hiem di. 
-                                        System.out.printf("%10s%15s%25s%25s%n","Loai Xe","So bao hiem","Lydo","Boithuong");            
-                                        System.out.printf("%10s%10d%25s%25f%n",BH.getXe(),BH.getSobaohiem(),lydo,BH.getTienboithuong());  
+                                        System.out.printf("%10s%15s%18s%25s%n","Loai Xe","So bao hiem","Lydo","Boithuong");            
+                                        System.out.printf("%10s%15d%25s%25f%n",BH.getXe(),BH.getSobaohiem(),lydo,BH.getTienboithuong());  
                                         System.out.println("Da boi thuong thanh cong");
                                         break;
                                    }else{

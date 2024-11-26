@@ -1,8 +1,6 @@
 package Menu;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 public class SaveMoney extends AccountMoney{
      private double saveMoney,lai;
     
@@ -37,18 +35,27 @@ public class SaveMoney extends AccountMoney{
           this.saveMoney = saveMoney;
      }
      public void setTong(double money, int han, double lai){
-          this.han=han;this.lai=lai;this.saveMoney=money;
+          this.han=han;
+          this.lai=lai;
+          this.saveMoney=money;
           this.TongMoney+=money+(money*han*lai);
+     }
+     public void setTongMoney(double tongMoney) {
+          TongMoney = tongMoney;
      }
      public double getTong(){
           return TongMoney;
      }
      public void StringMoney(){
           System.out.println("Tai khoan: "+getName());
-          System.out.println("So tien tiet kiem: "+saveMoney);
-          System.out.println("Han: "+han);
-          System.out.println("Lai: "+lai);
-          System.out.println("Tong so tien can tra: "+TongMoney);
+          if(saveMoney>0){
+               System.out.println("So tien tiet kiem: "+saveMoney);
+               System.out.println("Han: "+han);
+               System.out.println("Lai: "+lai);
+               System.out.println("Tong so tien can tra: "+TongMoney);
+          }else{
+               System.out.println("Hien tai ban khong gui tien tiet kiem!");
+          }
      }
 
      public static Scanner scanner;
@@ -81,8 +88,10 @@ public class SaveMoney extends AccountMoney{
                               if(moneyAcc.getMoney()>=money && money>0){
                                    lai=lai/100;
                                    setTong(money, han, lai);
+                                   setSaveMoney(money);
                                    moneyAcc.setMoney(moneyAcc.getMoney()-money);
                                    moneyAcc.addHistory("SaveMoney| Money: "+money+" han: "+han+" ");
+
                               }else{
                                    System.out.println("Money khong hop le or money lon hon thuc te ");
                               }
@@ -93,12 +102,14 @@ public class SaveMoney extends AccountMoney{
                          break;
                     case 2:
                          try {
-                              System.out.println("Nhap so tien rut: ");
-                              double money= scanner.nextDouble();
-                              if(money>0&& money<= getTong()){
-                                   setTong(-money, 0, 0);
-                                   moneyAcc.setMoney(moneyAcc.getMoney()+money);
-                                   moneyAcc.addHistory("Withdraw| Money: "+money+" ");
+                              // System.out.println("Nhap so tien rut: ");
+                              // double money= scanner.nextDouble();
+                              if(getTong()>=0){
+                                   setTong(0, 0,0);
+                                   moneyAcc.setMoney(moneyAcc.getMoney()+getTong());
+                                   moneyAcc.addHistory("Withdraw| Money: "+getTong()+" ");
+                                   setTongMoney(0);
+                                   System.out.println("Tien da duoc gui ve stk! ");
                               }else{
                                    System.out.println("Money khong hop le or money lon hon thuc te ");
                               }

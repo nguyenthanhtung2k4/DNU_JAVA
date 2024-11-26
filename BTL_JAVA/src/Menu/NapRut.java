@@ -1,6 +1,6 @@
 package Menu;
 
-abstract class Nap {
+abstract class Nap extends AccountMoney {
      public abstract double NapTien(AccountMoney acc, double tien);
 
      public abstract double RutTien(AccountMoney acc, double tien);

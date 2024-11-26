@@ -48,6 +48,7 @@ public class NgoaiTe extends AccountMoney{
      // /////////////// menu ///////////////
      @SuppressWarnings("static-access")
      public static  void menu1(AccountMoney moneyAcc){
+          System.out.println("Chuyen ngoai te\n");
           int  stk= input.nhap("So tai khoan: ",Integer.class);
           while (true) {
                double tien=input.nhap("Nhap so tien chuyen: ",Double.class);

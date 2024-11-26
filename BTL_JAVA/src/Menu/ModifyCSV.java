@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 public class ModifyCSV {
     public ModifyCSV(){};
     public static List<String> lines = new ArrayList<>(); // Use descriptive variable name
@@ -63,7 +62,6 @@ public class ModifyCSV {
                 // }
             }
     }
-    
     public static void writeCSV(String path,String fomat) {
             try {
                 FileWriter writer = new FileWriter(path);
@@ -76,7 +74,6 @@ public class ModifyCSV {
             } catch (IOException e) {
                 System.out.println("Error writing to file - " + e.getMessage());
             }
-
     }
     public static void displayCSV(int targetId,String path,String fomat, String plance){
             readCSV(path);

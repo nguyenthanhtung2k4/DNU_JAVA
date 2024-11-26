@@ -9,8 +9,11 @@ import java.util.Scanner;
 import Data.srcData;
 import Menu.AccountBank;
 import Menu.AccountMoney;
+import Menu.Admin;
+import Menu.Input;
 import Menu.Login;
 import Menu.Sigup;
+import Menu.Support;
 public class Main {
     public static AccountMoney moneyAcc;
     public static List<AccountBank> accounts = new ArrayList<>();
@@ -57,6 +60,16 @@ public class Main {
                 case 2:
                     moneyAcc.Clear();
                     new Login(accounts);
+                    break;
+                case 3:
+                    moneyAcc.Clear();
+                    System.out.println("\n\t Support");
+                    Support.displaySupport(accounts, FileAcc);
+                    String admin=Input.nhap("Y/N Login Admin: ",String.class);
+                    if (admin.equalsIgnoreCase(admin)){
+                        System.out.println("Quan tri vien: ");
+                        Admin.displayAdmin(admin, accounts);
+                    }
                     break;
                 default:
                     System.out.println("Sai nhap. Vui long nhap lai");

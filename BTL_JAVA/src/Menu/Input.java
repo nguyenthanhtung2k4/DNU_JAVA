@@ -1,7 +1,6 @@
 package Menu;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 public class Input {
     private static Scanner scanner = new Scanner(System.in); 
     public static <T> T nhap(String text, Class<T> type) {

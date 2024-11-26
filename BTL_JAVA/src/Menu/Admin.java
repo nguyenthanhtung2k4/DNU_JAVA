@@ -1,7 +1,5 @@
 package Menu;
-
 import java.util.List;
-
 public class Admin {
      public Admin() {};
     public static Input input = new Input();
@@ -31,37 +29,34 @@ public class Admin {
                          boolean isFound = false;
 
                          for (AccountBank acc : accounts) {
-                         if (acc.getId() == idEdit) {
-                              String file = "./Data/accounts.csv";
-                              String name = input.nhap("Nhap name", String.class);
-                              int year = input.nhap("Nhap year", Integer.class);
-                              String email = input.nhap("Nhap email", String.class);
-                              String sex = input.nhap("Nhap sex ", String.class);
-                              String address = input.nhap("Nhap ads ", String.class);
-                              int phone = input.nhap("Nhap phone ", Integer.class);
-                              int cccd = input.nhap("Nhapcccd ", Integer.class);
-                              String password = input.nhap("Nhap pas ", String.class);
-                              int money = input.nhap("Nhap money ", Integer.class);
+                              if (acc.getId() == idEdit) {
+                                   String file = "./Data/accounts.csv";
+                                   String name = input.nhap("Nhap name", String.class);
+                                   int year = input.nhap("Nhap year", Integer.class);
+                                   String email = input.nhap("Nhap email", String.class);
+                                   String sex = input.nhap("Nhap sex ", String.class);
+                                   String address = input.nhap("Nhap ads ", String.class);
+                                   int phone = input.nhap("Nhap phone ", Integer.class);
+                                   int cccd = input.nhap("Nhapcccd ", Integer.class);
+                                   String password = input.nhap("Nhap pas ", String.class);
+                                   int money = input.nhap("Nhap money ", Integer.class);
 
-                              String data = name + "," + year + "," + email + "," + sex + "," + address + "," +
-                                             phone + "," + cccd + "," + password + "," + money + "," + idEdit;
-                              ModifyCSV.displayCSV(idEdit, file, format, data);
-                              isFound = true;
-                              break;
+                                   String data = name + "," + year + "," + email + "," + sex + "," + address + "," +
+                                                  phone + "," + cccd + "," + password + "," + money + "," + idEdit;
+                                   ModifyCSV.displayCSV(idEdit, file, format, data);
+                                   isFound = true;
+                                   break;
+                              }
                          }
-                         }
-
                          if (!isFound) {
-                         System.out.println("Khong tim thay Id User ");
+                              System.out.println("Khong tim thay Id User ");
                          }
-                         break;
-
+                         break;    
                     case 3:new AccountBank().Clear();
                          System.out.println("Xoa tai khoan");
                          format = "name,year,email,sex,adrees,phone,cccd,pass,money,id";
                          idEdit = input.nhap("ID: ", Integer.class);
                          isFound = false;
-
                          for (AccountBank tk : accounts) {
                          if (tk.getId() == idEdit) {
                               ModifyCSV.displayCSVDelete(idEdit,fileAcc,format);
@@ -80,6 +75,7 @@ public class Admin {
                          int dem=0;
                          for (AccountBank acc : accounts) {
                               dem++;
+                              System.out.println("Id: "+acc.getId());
                               System.out.println(acc);
                          }System.out.println("\n\t ==> Tong so  Acccount "+dem);
                          break;

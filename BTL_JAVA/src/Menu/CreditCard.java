@@ -1,11 +1,9 @@
 package Menu;
 // import java.util.List;
 import java.util.Scanner;
-
 public class CreditCard extends AccountMoney {
         private double creditLimit;
         private double debt;
-       
        
         public CreditCard(String name, double initialMoney,int id) {
             super( name,initialMoney,id);
@@ -28,7 +26,6 @@ public class CreditCard extends AccountMoney {
             // this.time = time;
             addHistory("The Tin Dung: " + creditLimit+" |Now: " );
         }
-    
         public void payDebt(double amount) {
             if (amount > 0 && amount <= debt) {
                 debt -= amount;
@@ -49,9 +46,6 @@ public class CreditCard extends AccountMoney {
         public void getDebt(double debt){
             this.debt = debt;
         }
-        
-      
-
         public void useCard(double amount) {
             if (amount > 0 && amount <= creditLimit) {
                 debt += amount;

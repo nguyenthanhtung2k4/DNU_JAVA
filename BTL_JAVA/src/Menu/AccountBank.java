@@ -7,6 +7,10 @@ public class AccountBank {
      
      public AccountBank() {
      };
+     public AccountBank(String name, int id){
+          this.id = id;
+          this.name = name;
+     }
      public AccountBank(int  id, String name,double money){
           this.id = id;
           this.name = name;
