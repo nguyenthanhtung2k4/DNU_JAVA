@@ -526,7 +526,7 @@ z
 
 
 # UML (unified  Moedeing language):  Mô hình hóa.
-
+## link tham khỏa: https://fct-club.com/2022/09/20/tong-quan-ve-bieu-do-uml/
 
 ///////////////////////////////////////// JFame (Giao diện destop java) //////////////////////
 # JFrame là gì?
